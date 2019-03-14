@@ -1,0 +1,13 @@
+/**************************
+Media Queries for App.js 
+***************************/
+/* Extra Large Screens */
+@media screen and (min-width:1920px) {
+    .app_container {
+        height: 85vh;
+    }
+
+    .app_container-content {
+        grid-template-columns: 1fr 3fr;
+    }
+}

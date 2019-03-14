@@ -1,6 +1,7 @@
 // React stuff & styling.
 import React, { Component } from 'react'
 import './Movies.css';
+import './media.css';
 
 // Redux Stuff.
 import { connect } from 'react-redux';
@@ -16,21 +17,23 @@ class Movies extends Component {
     super(props);
   }
 
-  
-  //using componendDidMount for Api calls purposes.
+
+  //using componendDidMount for Api call purposes.
   componentDidMount() {
     // call the TMDB movies api when component loaded.
-    this.props.GetMoviesFromApiHandler();
+    // this func would run only once when app loads.
+    if (this.props.movies.callMovieApi) {
+      this.props.GetMoviesFromApiHandler();
+    }
   }
 
   render() {
     // List of movies.
     const { movies } = this.props.movies;
-    console.log(movies);
     return (
       <div className='Movies'>
           {
-            movies.map((movie) => <MovieItem movie={movie} />)
+            movies.map((movie, i) => <MovieItem key={i} movie={movie} />)
           }
       </div>
     )

@@ -1,0 +1,41 @@
+/**************************
+Media Queries for Movies.js 
+***************************/
+/* Extra Large Screens */
+@media screen and (min-width:1920px) {
+    .Movies-add {
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 4rem;
+        width: 4rem;
+        background-color: var(--main-color);
+        border-radius: 50%;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        color: #fff;
+        font-size: 3rem;
+        padding-bottom: var(--sp-md);
+        box-shadow: 3px 8px 10px rgba(0,0,0,.7);
+        transition: all .3s ease;
+    }
+    
+    .Movies-add:hover {
+        top: 69%;
+        color: var(--main-color);
+        background-color: #fff;
+    }
+    
+    .Movies-add:active {
+        top: 70%;
+    }
+    
+    .Movies-add::after {
+        content: '+';
+        position: absolute;
+        bottom: 0%;
+        right: 25%;
+    }
+}

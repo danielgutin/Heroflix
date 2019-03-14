@@ -1,0 +1,22 @@
+.EditModal_fields {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    font-size: 1rem;
+    grid-gap: 1rem;
+}
+
+.EditModal_fields-field label {
+    float: left;
+}
+
+.EditModal_fields-field input {
+    float: right;
+    border: 1px solid rgba(0, 0, 0, 0.342);
+    border-radius: .2rem;
+    outline: none;
+    padding: .1rem;
+}
+
+.EditModal_fields-checkbox {
+    display: grid;
+}

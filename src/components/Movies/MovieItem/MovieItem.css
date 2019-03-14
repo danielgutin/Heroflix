@@ -7,13 +7,10 @@
 
 
 .MovieItem .MovieItem_content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
     height: 0;
     width: 100%;
     opacity: 0;
-    transition: all .5s ease;
+    transition: all .3s ease;
     cursor: pointer;
     color: #fff;
     background: linear-gradient(rgba(0,0,0,.9), rgba(0,0,0,.9));
@@ -24,20 +21,64 @@
 }
 
 .MovieItem .MovieItem_content > * {
-    margin-bottom: var(--sp-sm);
+    margin-bottom: .1rem;
 }
 
 
 .MovieItem .MovieItem_content h3 {
     font-size: 1.2rem;
+    color: #fff;
 }
 
 .MovieItem .MovieItem_content ul {
     list-style: none;
 }
 
+.MovieItem_content ul li {
+    display: inline-block;
+    background-color: rgb(255, 255, 255);
+    color: var(--main-color);
+    padding: .1rem var(--sp-sm);
+    border-radius: .3rem;
+    margin: .1rem;
+    font-size: .6rem;
+    font-weight: bold;
+}
+
 .MovieItem:hover .MovieItem_content {
     height: 100%;
     opacity: 1;
     background: linear-gradient(rgba(0,0,0,.9), rgba(0,0,0,.9));
+}
+
+.MovieItem_buttons {
+    margin-top: var(--sp-sm);
+}
+
+.MovieItem_buttons-button {
+    font-size: 1rem;
+    color: #fff;
+    background-color: var(--main-color);
+    border: none;
+    border-radius: .3rem;
+    padding: .2rem .5rem;
+    cursor: pointer;
+    transition: all .3s ease;
+    position: absolute;
+    outline: none;
+}
+
+.MovieItem_buttons-button:hover {
+    background-color: #fff;
+    color: var(--main-color);
+}
+
+.MovieItem_buttons-button.MovieItem_button-edit {
+    bottom: 5%;
+    left: 15%;
+}
+
+.MovieItem_buttons-button.MovieItem_button-add {
+    bottom: 5%;
+    left: 45%;
 }

@@ -1,5 +1,8 @@
+// React & Styling.
 import React from 'react'
 import './SideNavMenu.css';
+import './media.css';
+
 export default function SideNavMenu() {
   return (
     <React.Fragment>

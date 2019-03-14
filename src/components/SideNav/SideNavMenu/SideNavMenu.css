@@ -19,7 +19,7 @@
 .SideNav_menu_items-item span,
 .SideNav_menu_items-item .fas {
     display: inline-block;
-    padding-left: var(--sp-md);
+    padding-left: var(--sp-lg);
     transition: all .3s ease;
 }
 

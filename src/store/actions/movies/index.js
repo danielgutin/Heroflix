@@ -2,7 +2,11 @@
 // --------- Actions Related to Movies Section ----------- //
 import axios from 'axios';
 import swal from 'sweetalert';
-import { GET_MOVIES_FROM_API } from './constants';
+import { 
+    GET_MOVIES_FROM_API,
+    TOGGLE_MOVIE_API,
+    EDIT_MODAL_TOGGLE,
+    GET_MOVIE_EDIT_INFO } from './constants';
 
 // this function calls the TMDB api & recieve list of 20 random movies.
 // second api call is with each movie id that recived for extra information about the movie.
@@ -21,9 +25,28 @@ export const GetMoviesFromApi = () => {
                 })
                 .catch((err) => swal( "Oops" ,  "Error Reading Details About Specific movie" ,  "error" ))
             })
+            // disable the abillity to use api on next ComponentDidUpdate.
+            //limiting the user to single call on enter.
+            dispatch( {type: TOGGLE_MOVIE_API});
          })
         .catch((err) => {
             swal( "Oops" ,  "Failed to retrive movies Data" ,  "error" );
         });
+    }
+}
+
+
+// Toggle editModal Action.
+export const toggleEditModal = () => ({ type: EDIT_MODAL_TOGGLE });
+
+
+// Responsible for edit modal display, 
+// passing the current movie id to get the relevant data.
+export const editModal = id => {
+    return dispatch => {
+        // toggle the modal 
+        dispatch(toggleEditModal());
+        // gathering the relevant data to specific movie by id.
+        dispatch({type: GET_MOVIE_EDIT_INFO, payload: id});
     }
 }

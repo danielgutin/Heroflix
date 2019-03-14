@@ -1,0 +1,10 @@
+/**************************
+Media Queries for SideNavMenu.js 
+***************************/
+/* Extra Large Screens */
+@media screen and (min-width:1920px) {
+    .SideNav_menu_items-item {
+        font-size: 1.5rem;
+        margin-bottom:  0;
+    }
+}

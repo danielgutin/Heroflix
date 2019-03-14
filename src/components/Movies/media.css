@@ -1,0 +1,13 @@
+/**************************
+Media Queries for Movies.js 
+***************************/
+/* Extra Large Screens */
+@media screen and (min-width:1920px) {
+    .Movies {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 18rem;
+        grid-auto-rows: 18rem;
+        grid-gap: var(--sp-lg);
+        padding: var(--sp-md);
+    } 
+}

@@ -1,6 +1,9 @@
 // React stuff & styling.
 import React, { Component } from 'react';
+
+import 'antd/dist/antd.css';  // cool UI library.
 import './App.css';
+import './media.css';
 
 // Redux & Routing.
 import { Route, Switch } from 'react-router-dom';
@@ -10,7 +13,7 @@ import Movies from './components/Movies/Movies';
 import SideNav from './components/SideNav/SideNav';
 import Favorites from './components/Favorites/Favorites';
 import Setting from './components/Setting/Setting';
-
+import EditModal from './components/modals/EditModal/EditModal';
 class App extends Component {
   render() {
     return (
@@ -25,6 +28,7 @@ class App extends Component {
               </Switch>
             </div>
           </div>
+          <EditModal />
         </div>
     );
   }
