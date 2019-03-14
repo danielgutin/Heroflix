@@ -1,0 +1,56 @@
+.SocialMenu_wrapper {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.SocialMenu {
+    padding: 0;
+    list-style: none;
+    display: inline-block;
+    margin: 10px auto;
+  }
+
+  .SocialMenu li {
+    display: inline-block;
+  }
+
+  .SocialMenu a {
+    display: inline-block;
+    float: left;
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    line-height: 48px;
+    background: #000;
+    position: relative;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    overflow: hidden;
+    font-size: 26px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    margin: 0 5px;
+  }
+
+  .SocialMenu a:hover {
+    background: #fff;
+    text-shadow: 0px 0px #d5d5d5, 1px 1px #d5d5d5, 2px 2px #d5d5d5, 3px 3px #d5d5d5, 4px 4px #d5d5d5, 5px 5px #d5d5d5, 6px 6px #d5d5d5, 7px 7px #d5d5d5, 8px 8px #d5d5d5, 9px 9px #d5d5d5, 10px 10px #d5d5d5, 11px 11px #d5d5d5, 12px 12px #d5d5d5, 13px 13px #d5d5d5, 14px 14px #d5d5d5, 15px 15px #d5d5d5, 16px 16px #d5d5d5, 17px 17px #d5d5d5, 18px 18px #d5d5d5, 19px 19px #d5d5d5, 20px 20px #d5d5d5, 21px 21px #d5d5d5, 22px 22px #d5d5d5, 23px 23px #d5d5d5, 24px 24px #d5d5d5, 25px 25px #d5d5d5, 26px 26px #d5d5d5, 27px 27px #d5d5d5, 28px 28px #d5d5d5, 29px 29px #d5d5d5, 30px 30px #d5d5d5;
+    color: #000;
+  }
+
+  .SocialMenu .linkedin {
+    background: var(--main-color);
+    text-shadow: 0px 0px var(--main-color), 1px 1px var(--main-color), 2px 2px var(--main-color), 3px 3px var(--main-color), 4px 4px var(--main-color), 5px 5px var(--main-color), 6px 6px var(--main-color), 7px 7px var(--main-color), 8px 8px var(--main-color), 9px 9px var(--main-color), 10px 10px var(--main-color), 11px 11px var(--main-color), 12px 12px var(--main-color), 13px 13px var(--main-color), 14px 14px var(--main-color), 15px 15px var(--main-color), 16px 16px var(--main-color), 17px 17px var(--main-color), 18px 18px var(--main-color), 19px 19px var(--main-color), 20px 20px var(--main-color), 21px 21px var(--main-color), 22px 22px #005983, 23px 23px #005983, 24px 24px #005983, 25px 25px var(--main-color), 26px 26px var(--main-color), 27px 27px var(--main-color), 28px 28px var(--main-color), 29px 29px var(--main-color), 30px 30px var(--main-color);
+  }
+  .SocialMenu .linkedin:hover {
+    color: var(--main-color);
+  }

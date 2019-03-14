@@ -1,0 +1,20 @@
+/**************************
+ Application Side Nav 
+***************************/
+.SideNav {
+    background-color: rgba(14, 11, 11, 0.603);
+    position: relative;
+}
+
+.SideNav_logo {
+    height: 20%;
+    position: relative;
+    text-align: center;
+}
+
+.SideNav_logo img {
+    height: 10rem;
+    width: 10rem;
+    display: inline-block;
+    z-index: 99;
+}

@@ -1,0 +1,45 @@
+.SideNav_menu {
+    padding-top: var(--sp-md);
+}
+
+.SideNav_menu_items {
+    list-style: none;
+}
+
+.SideNav_menu_items-item {
+    font-size: 1.5rem;
+    margin-bottom:  var(--sp-lg);
+    color: var(--second-color);
+    position: relative;
+    transition: all .3s ease;
+    padding: var(--sp-sm) 0;
+    cursor: pointer;
+}
+
+.SideNav_menu_items-item span,
+.SideNav_menu_items-item .fas {
+    display: inline-block;
+    padding-left: var(--sp-md);
+    transition: all .3s ease;
+}
+
+
+.SideNav_menu_items-item:first-of-type::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: .2rem;
+    background-color: var(--main-color);
+}
+
+.SideNav_menu_items-item:hover {
+    background-color: var(--second-color);
+}
+
+.SideNav_menu_items-item:hover span,
+.SideNav_menu_items-item:hover .fas {
+    color: var(--main-color);
+}
+
