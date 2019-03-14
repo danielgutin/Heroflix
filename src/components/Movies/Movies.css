@@ -1,4 +1,30 @@
 .Movies {
-    background-color: rgba(0, 0, 0, 0.788);
+    background-color: var(--shadow-color);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 21rem;
+    grid-auto-rows: 21rem;
+    grid-gap: var(--sp-lg);
+    padding: var(--sp-md);
+    overflow-y: auto;
+}
 
+.Movies::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(214, 41, 41, 0.527);
+	border-radius: .2rem;
+	background-color: #F5F5F5;
+}
+
+.Movies::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+.Movies::-webkit-scrollbar-thumb
+{
+	border-radius: .4rem;
+	-webkit-box-shadow: inset 0 0 6px rgba(214, 41, 41, 0.678);
+	background-color: rgba(214, 41, 41, 0.781);
 }

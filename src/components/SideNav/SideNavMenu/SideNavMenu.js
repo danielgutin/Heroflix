@@ -10,11 +10,11 @@ export default function SideNavMenu() {
               <span>Home</span>
             </li>
             <li className="SideNav_menu_items-item">
-              <i class="fas fa-newspaper"></i>
+              <i className="fas fa-newspaper"></i>
               <span>My List</span>
             </li>
             <li className="SideNav_menu_items-item">
-              <i class="fas fa-cogs"></i>
+              <i className="fas fa-cogs"></i>
               <span>Setting</span>
             </li>
           </ul>

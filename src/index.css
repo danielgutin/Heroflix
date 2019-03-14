@@ -23,7 +23,7 @@ body {
   /* App colors */
   --main-color : #E50914;
   --second-color : #eee;
-  --shadow-color : rgba(43, 40, 40, 0.733);
+  --shadow-color : rgba(0, 0, 0, 0.788);
   /* spaces used for margin & padding */
   --sp-sm : .5rem; 
   --sp-md : 1rem;
