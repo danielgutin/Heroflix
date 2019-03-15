@@ -12,7 +12,9 @@ import {
     EDIT_MODAL_CHANGE,
     REMOVE_GENRE_BY_ID,
     NEW_GENRE_INPUT_CHANGE,
-    SUBMIT_NEW_GENRE } from '../../actions/movies/constants';
+    SUBMIT_NEW_GENRE,
+    SUBMIT_EDIT_MODAL,
+    TOGGLE_ERROR_MODAL } from '../../actions/movies/constants';
 
 // Movies Reducer State.
 const initState = {
@@ -22,18 +24,24 @@ const initState = {
     callMovieApi : true,
     // edit modal prop.
     //isVisible - true, modal displayed.
-    //fields - the different modal fields.
+    //fields - the different modal fields. ( id untouched, just for later use ).
     //newGenreField - when deleting all existing genres, new input opens with new genre creation option.
     editModal : {
         isVisible : false,
         newGenreField : { id: null, name: ''},
         fields : {
+            id : '',
             title : '',
             runtime : '',
             release_date : '',
             genres : [],
             production_companies : ''
         }
+    },
+    // error modal, notify the user about errors in App.
+    errorModal : {
+        isVisible : false,
+        errors : []
     }
 }
 
@@ -93,6 +101,8 @@ export default (state = initState, { type, payload }) => {
             //create editModal Clone. 
             let editModalFields = Object.assign({}, state.editModal);
             // Update editModal Fields.
+            // id filled & remains untouched.
+            editModalFields.fields['id'] = payload;
             editModalFields.fields['title'] = relevantMovie[0].title;
             editModalFields.fields['runtime'] = relevantMovie[0].runtime;
             editModalFields.fields['release_date'] = relevantMovie[0].release;
@@ -176,6 +186,7 @@ export default (state = initState, { type, payload }) => {
         // --- submiting new Genre.
         // 1. generating unique id to genre.
         // 2. adding the genre to the existing genres list.
+        // 3. reset newGenreField obj.
         case SUBMIT_NEW_GENRE:
             //editModal Clone. 
             let editModalNewGenreSubmit = Object.assign({}, state.editModal);
@@ -183,9 +194,65 @@ export default (state = initState, { type, payload }) => {
             editModalNewGenreSubmit.newGenreField['id'] =  parseInt(Math.random() * 10000);
             // creating new genres arr with the new genre item.
             editModalNewGenreSubmit.fields.genres = [ editModalNewGenreSubmit.newGenreField ];
+            // Reset The fields. ( after 100ms delay, enable smooth update of state. )
+            setTimeout(() => {
+                editModalNewGenreSubmit.newGenreField['id'] = null;
+                editModalNewGenreSubmit.newGenreField['name'] = ''
+            }, 100);
             return {
                 ...state,
                 editModal : editModalNewGenreSubmit
+            }
+
+        // --- toggle error modal.
+        case TOGGLE_ERROR_MODAL:
+            let errorModalUpdate = Object.assign({}, state.errorModal);
+            errorModalUpdate.isVisible = !errorModalUpdate.isVisible;
+            //reset error list if modal is off.
+            if (!errorModalUpdate.isVisible) {
+                errorModalUpdate.errors = [];
+            }
+            return {
+                ...state,
+                errorModal : errorModalUpdate
+            }
+
+        // --- submit edit Modal
+        // 1. validate the different fields. ( not empty )
+        // 2. extra validation for movie title ( only letters, not duplicate, reformat each first letter to UpperCase )
+        // 3. extra validation for date input ( correct yyyy-mm-dd format )
+        // 4. find the relevant movie by its id from the movies list inside the store
+        //    and update the relvenat fields.
+        case SUBMIT_EDIT_MODAL:
+            // Movies & editModal clones.
+            let editModalSubmit = Object.assign({}, state.editModal);
+            let moviesUpdate = Object.assign({}, state.movies);
+            let errorModalSubmit = Object.assign({}, state.errorModal);
+
+            // 1.validate the different fields.
+            // looping through the editModal properties.
+            Object.entries(editModalSubmit.fields).forEach((item) => {
+                // if field is empty error added to the error list.
+                if( item[1] === '' ||  item[1].length === 0 ) {
+                    errorModalSubmit.errors = [...errorModalSubmit.errors, `${item[0]} field is Empty`];
+                }
+            })
+
+            // 2.extra validation for title field.
+            editModalSubmit.fields['title'].split(' ').forEach((word) => {
+                // Omitting any invalid letter with regx.
+                word = word.replace(/[^0-9a-z]/gi, '');
+
+                // uppercase the first letter, lowercase the rest.
+                word = word.charAt(0).toUpperCase() + word.substr(1).toLowerCase();
+                console.log(word);
+            })
+
+            console.log(editModalSubmit.fields['title']);
+
+
+            return {
+                ...state
             }
         // --- default case, return state.
         default:

@@ -1,4 +1,3 @@
-
 // --------- Actions Related to Movies Section ----------- //
 import axios from 'axios';
 import swal from 'sweetalert';
@@ -10,7 +9,9 @@ import {
     EDIT_MODAL_CHANGE,
     REMOVE_GENRE_BY_ID,
     NEW_GENRE_INPUT_CHANGE,
-    SUBMIT_NEW_GENRE } from './constants';
+    SUBMIT_NEW_GENRE,
+    SUBMIT_EDIT_MODAL,
+    TOGGLE_ERROR_MODAL } from './constants';
 
 // this function calls the TMDB api & recieve list of 20 random movies.
 // second api call is with each movie id that recived for extra information about the movie.
@@ -79,4 +80,14 @@ export const editModalNewGenreInput = content => {
 // creating new genre.
 export const editModalSubmitNewGenre = () => {
     return { type : SUBMIT_NEW_GENRE }
+}
+
+// Submit Edit Modal.
+export const editModalSubmitModal = () => {
+    return { type: SUBMIT_EDIT_MODAL }
+}
+
+// toggle error modal.
+export const toggleErrorModal = () => {
+    return { type : TOGGLE_ERROR_MODAL }
 }

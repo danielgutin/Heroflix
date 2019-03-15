@@ -24,3 +24,10 @@ export const NEW_GENRE_INPUT_CHANGE = 'NEW_GENRE_INPUT_CHANGE';
 
 // EditModal new genre field submit.
 export const SUBMIT_NEW_GENRE = 'SUBMIT_NEW_GENRE';
+
+// Submit Edit Modal.
+export const SUBMIT_EDIT_MODAL = 'SUBMIT_EDIT_MODAL';
+
+// toggle error Modal.
+export const TOGGLE_ERROR_MODAL = 'TOGGLE_ERROR_MODAL';
+

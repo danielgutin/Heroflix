@@ -9,7 +9,8 @@ import {
         editModalChange,
         editModalremoveGenre,
         editModalNewGenreInput,
-        editModalSubmitNewGenre } from '../../../store/actions/movies';
+        editModalSubmitNewGenre,
+        editModalSubmitModal } from '../../../store/actions/movies';
 
 // Components
 import { Modal, Button } from 'antd';
@@ -18,13 +19,13 @@ import EditField from './EditField';
 const EditModal = (props) => {
     // properties used for edit modal.
     const { isVisible, newGenreField } = props.movies.editModal;
-    const {  
+    const {
+        id,  
         title,
         runtime,
         release_date,
         genres,
         production_companies } = props.movies.editModal.fields;
-        console.log(genres);
   return (
     <div className='EditModal'>
         <Modal
@@ -34,7 +35,7 @@ const EditModal = (props) => {
             onCancel={() => props.toggleEditModalHandler()}
             footer={[
             <Button key="back" onClick={() => props.toggleEditModalHandler()}>Cancel</Button>,
-            <Button key="submit" type="primary" onClick={() => console.log('submit changes')}>
+            <Button key="submit" type="primary" onClick={() => props.editModalSubmitModalHandler()}>
                 Save
             </Button>
             ]}>
@@ -103,7 +104,8 @@ const mapStateToProps = state => {
         editModalChangeHandler : ( field, content) => dispatch(editModalChange(field, content)),
         editModalremoveGenreHandler : (genreId) => dispatch(editModalremoveGenre(genreId)),
         editModalNewGenreInputHandler : (content) => dispatch(editModalNewGenreInput(content)),
-        editModalSubmitNewGenreHandler : () => dispatch(editModalSubmitNewGenre())
+        editModalSubmitNewGenreHandler : () => dispatch(editModalSubmitNewGenre()),
+        editModalSubmitModalHandler : () => dispatch(editModalSubmitModal())
     }
   }
 

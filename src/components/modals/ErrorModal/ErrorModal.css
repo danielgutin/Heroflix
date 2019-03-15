@@ -1,0 +1,30 @@
+.ErrorModal_content {
+    text-align: center;
+}
+
+.ErrorModal_content img {
+    height: 7rem;
+    width: 7rem;
+}
+
+.ErrorModal_content h3 {
+    font-size: 1.4rem;
+}
+
+.ErrorModal_content p {
+    font-size: 1.2rem;
+}
+
+.ErrorModal_content ul {
+    font-size: 1rem;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.ErrorModal_content ul li {
+    margin-bottom: var(--sp-md);
+    background-color: var(--main-color);
+    color: #fff;
+    border-radius: .2rem;
+    padding: var(--sp-sm);
+}
