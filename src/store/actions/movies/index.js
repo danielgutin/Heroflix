@@ -6,7 +6,11 @@ import {
     GET_MOVIES_FROM_API,
     TOGGLE_MOVIE_API,
     EDIT_MODAL_TOGGLE,
-    GET_MOVIE_EDIT_INFO } from './constants';
+    GET_MOVIE_EDIT_INFO,
+    EDIT_MODAL_CHANGE,
+    REMOVE_GENRE_BY_ID,
+    NEW_GENRE_INPUT_CHANGE,
+    SUBMIT_NEW_GENRE } from './constants';
 
 // this function calls the TMDB api & recieve list of 20 random movies.
 // second api call is with each movie id that recived for extra information about the movie.
@@ -49,4 +53,30 @@ export const editModal = id => {
         // gathering the relevant data to specific movie by id.
         dispatch({type: GET_MOVIE_EDIT_INFO, payload: id});
     }
+}
+
+
+
+// Handle EditModal input Changes.
+// function recieve 2 values
+// 1. the field ( ex. title )
+// 2. the content ( ex. Inception )
+export const editModalChange = (field, content) => {
+    return { type: EDIT_MODAL_CHANGE, payload : { field, content }}
+}
+
+
+// Remove specific genre By ID.
+export const editModalremoveGenre = genreID => {
+    return { type : REMOVE_GENRE_BY_ID, payload: genreID }
+}
+
+// input change to new genre field.
+export const editModalNewGenreInput = content => {
+    return { type: NEW_GENRE_INPUT_CHANGE, payload : content }
+}
+
+// creating new genre.
+export const editModalSubmitNewGenre = () => {
+    return { type : SUBMIT_NEW_GENRE }
 }

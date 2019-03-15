@@ -4,27 +4,33 @@ import './EditModal.css';
 
 // Redux Stuff.
 import { connect } from 'react-redux';
-import { toggleEditModal } from '../../../store/actions/movies';
+import { 
+        toggleEditModal,
+        editModalChange,
+        editModalremoveGenre,
+        editModalNewGenreInput,
+        editModalSubmitNewGenre } from '../../../store/actions/movies';
 
 // Components
 import { Modal, Button } from 'antd';
+import EditField from './EditField';
 
 const EditModal = (props) => {
     // properties used for edit modal.
-    const { isVisible } = props.movies.editModal;
+    const { isVisible, newGenreField } = props.movies.editModal;
     const {  
         title,
         runtime,
         release_date,
         genres,
         production_companies } = props.movies.editModal.fields;
+        console.log(genres);
   return (
     <div className='EditModal'>
         <Modal
             visible={isVisible}
             width={850}
             title="Edit Movie"
-            onOk={() => console.log('Ok Pressed')}
             onCancel={() => props.toggleEditModalHandler()}
             footer={[
             <Button key="back" onClick={() => props.toggleEditModalHandler()}>Cancel</Button>,
@@ -33,29 +39,49 @@ const EditModal = (props) => {
             </Button>
             ]}>
         <div className="EditModal_fields">
-            <div className="EditModal_fields-field">
-                <label htmlFor="">title</label>
-                <input type="text" value={title}/>
-            </div>
-            <div className="EditModal_fields-field">
-                <label htmlFor="">runtime</label>
-                <input type="text" value={runtime}/>
-            </div>
-            <div className="EditModal_fields-field">
-                <label htmlFor="">release date</label>
-                <input type="text" value={release_date}/>
-            </div>
-            <div className="EditModal_fields-field">
-                <label htmlFor="">production</label>
-                <input type="text" value={production_companies}/>
-            </div>
-            <div className="EditModal_fields-field EditModal_fields-checkbox">
-                {genres.map((genre, i) => (
-                    <div key={i}>
-                        <label>{genre.name}</label>
-                        <input type='checkbox' checked={false} onChange={() => console.log('changed!')} />
+            <EditField 
+                label='title' 
+                value={title}
+                change={(e) => props.editModalChangeHandler('title', e.target.value)}
+                />
+            <EditField 
+                label='runtime' 
+                value={runtime}
+                change={(e) => props.editModalChangeHandler('runtime', e.target.value)}
+                />
+            <EditField 
+                label='release date' 
+                value={release_date}
+                change={(e) => props.editModalChangeHandler('release_date', e.target.value)}
+                />
+            <EditField 
+                label='production' 
+                value={production_companies}
+                change={(e) => props.editModalChangeHandler('production_companies', e.target.value)}
+                />
+            <div className="EditModal_fields-field EditModal_fields-genres">
+                {
+                    genres.length > 0 
+                    ? genres.map((genre, i) => (
+                        <div key={i}>
+                            <input 
+                                type='text' 
+                                value={genre.name} 
+                                onChange={(e) => props.editModalChangeHandler('genres', [genre.id, e.target.value])}
+                                />
+                            <button onClick={() => props.editModalremoveGenreHandler(genre.id)}>X</button>
+                        </div>))
+                    : <div>
+                        <input 
+                        type='text' 
+                        value={newGenreField.name}
+                        placeholder='add new Category'
+                        onChange={(e) => props.editModalNewGenreInputHandler(e.target.value)}
+                        />
+                        <button className='new-genre' onClick={() => props.editModalSubmitNewGenreHandler()}>add</button>
                     </div>
-                ))}
+                    
+                }
             </div>  
         </div>
     </Modal>
@@ -73,7 +99,11 @@ const mapStateToProps = state => {
   // Map dispatch actions into component props.
   const mapDispatchToProps = dispatch => {
     return {
-        toggleEditModalHandler : () => dispatch(toggleEditModal())
+        toggleEditModalHandler : () => dispatch(toggleEditModal()),
+        editModalChangeHandler : ( field, content) => dispatch(editModalChange(field, content)),
+        editModalremoveGenreHandler : (genreId) => dispatch(editModalremoveGenre(genreId)),
+        editModalNewGenreInputHandler : (content) => dispatch(editModalNewGenreInput(content)),
+        editModalSubmitNewGenreHandler : () => dispatch(editModalSubmitNewGenre())
     }
   }
 

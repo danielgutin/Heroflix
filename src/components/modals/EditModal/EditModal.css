@@ -17,6 +17,32 @@
     padding: .1rem;
 }
 
-.EditModal_fields-checkbox {
-    display: grid;
+.EditModal_fields-genres div {
+    margin-bottom: var(--sp-sm);
+}
+
+.EditModal_fields-genres button {
+    height: 2rem;
+    width: 2.5rem;
+    border-radius: 10%;
+    border: none;
+    background-color: var(--main-color);
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all .3s ease;
+    outline: none;
+}
+
+.EditModal_fields-genres button:hover {
+    background-color: rgb(179, 10, 18);
+}
+
+.EditModal_fields-genres .new-genre {
+    background-color: rgb(11, 139, 6);
+    outline: none;
+}
+
+.EditModal_fields-genres .new-genre:hover {
+    background-color: rgb(9, 104, 6);
 }

@@ -12,3 +12,15 @@ export const EDIT_MODAL_TOGGLE = 'EDIT_MODAL_TOGGLE';
 
 // Get relevant data about movie by its ID.
 export const GET_MOVIE_EDIT_INFO = 'GET_MOVIE_EDIT_INFO';
+
+// EditModal input Change handler.
+export const EDIT_MODAL_CHANGE = 'EDIT_MODAL_CHANGE';
+
+// EditModal remove genre by ID.
+export const REMOVE_GENRE_BY_ID = 'REMOVE_GENRE_BY_ID';
+
+// EditModal new genre field change.
+export const NEW_GENRE_INPUT_CHANGE = 'NEW_GENRE_INPUT_CHANGE';
+
+// EditModal new genre field submit.
+export const SUBMIT_NEW_GENRE = 'SUBMIT_NEW_GENRE';
