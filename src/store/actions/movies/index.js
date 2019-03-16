@@ -11,7 +11,9 @@ import {
     NEW_GENRE_INPUT_CHANGE,
     SUBMIT_NEW_GENRE,
     SUBMIT_EDIT_MODAL,
-    TOGGLE_ERROR_MODAL } from './constants';
+    TOGGLE_ERROR_MODAL,
+    TOGGLE_NEW_MODAL,
+    NEW_MODAL_INPUT } from './constants';
 
 // this function calls the TMDB api & recieve list of 20 random movies.
 // second api call is with each movie id that recived for extra information about the movie.
@@ -90,4 +92,36 @@ export const editModalSubmitModal = () => {
 // toggle error modal.
 export const toggleErrorModal = () => {
     return { type : TOGGLE_ERROR_MODAL }
+}
+
+
+// toggle new movie modal.
+export const toggleNewModal = () => {
+    return { type: TOGGLE_NEW_MODAL }
+}
+
+// new movie field input.
+export const newModalInput = (content) => {
+    return { type: NEW_MODAL_INPUT, payload : content }
+}
+// Add new movie by Name.
+export const addMovie = ( name ) => {
+    return dispatch => {
+        axios.get(`http://api.themoviedb.org/3/search/movie?api_key=02a35c5cbc417952eab0267826fb4b58&query=${name}`)
+        .then((res) => {
+            axios.get(`https://api.themoviedb.org/3/movie/${res.data.results[0].id}?api_key=02a35c5cbc417952eab0267826fb4b58`)
+            .then((res) => {
+                // updathe the movie List.
+                dispatch({ type : GET_MOVIES_FROM_API, payload: res.data });
+                // hide NewModal.
+                dispatch({ type: TOGGLE_NEW_MODAL });
+                //notify user about successful addition.
+                swal( "YAY !!" ,  `${name} found & added to movie list` ,  "success" );
+            })
+            // notify user about failure result.
+            .catch((err) => swal( "Oops" ,  `Could not find ${name}` ,  "error" ))
+        })
+        // notify user about failure result.
+        .catch((err) => swal( "Oops" ,  `Could not find ${name}` ,  "error" ))
+    }
 }

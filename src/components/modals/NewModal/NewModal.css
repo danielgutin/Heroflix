@@ -1,0 +1,37 @@
+.NewModal_window {
+    overflow-y: auto;
+}
+.NewModal_content {
+    text-align: center;
+}
+
+.NewModal_content img {
+    height: 8rem;
+    width: 8rem;
+}
+
+.NewModal_content p {
+    font-size: 1.2rem;
+    margin: var(--sp-md) 0;
+}
+
+.NewModal_content input {
+    font-size: 1rem;
+    width: 80%;
+    margin: 0 auto;
+    text-align: left;
+    padding: var(--sp-sm);
+    border: 1px solid rgba(0, 0, 0, 0.466);
+}
+
+
+.NewModal_content input:focus {
+    outline-color: var(--main-color);
+}
+
+.NewModal_content span {
+    display: block;
+    margin-top: var(--sp-lg);
+    font-weight: bold;
+    text-align: left;
+}

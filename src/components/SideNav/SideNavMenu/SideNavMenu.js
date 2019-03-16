@@ -16,10 +16,6 @@ export default function SideNavMenu() {
               <i className="fas fa-newspaper"></i>
               <span>My List</span>
             </li>
-            <li className="SideNav_menu_items-item">
-              <i className="fas fa-cogs"></i>
-              <span>Setting</span>
-            </li>
           </ul>
         </div>
     </React.Fragment>

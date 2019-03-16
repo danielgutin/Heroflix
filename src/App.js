@@ -13,8 +13,10 @@ import Movies from './components/Movies/Movies';
 import SideNav from './components/SideNav/SideNav';
 import Favorites from './components/Favorites/Favorites';
 import Setting from './components/Setting/Setting';
+// different app modals.
 import EditModal from './components/modals/EditModal/EditModal';
 import ErrorModal from './components/modals/ErrorModal/ErrorModal';
+import NewModal from './components/modals/NewModal/NewModal';
 
 class App extends Component {
   render() {
@@ -32,6 +34,7 @@ class App extends Component {
           </div>
           <EditModal />
           <ErrorModal />
+          <NewModal />
         </div>
     );
   }

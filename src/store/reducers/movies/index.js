@@ -17,7 +17,10 @@ import {
     NEW_GENRE_INPUT_CHANGE,
     SUBMIT_NEW_GENRE,
     SUBMIT_EDIT_MODAL,
-    TOGGLE_ERROR_MODAL } from '../../actions/movies/constants';
+    TOGGLE_ERROR_MODAL,
+    TOGGLE_NEW_MODAL,
+    NEW_MODAL_INPUT,
+    NEW_MODAL_ADD_MOVIE } from '../../actions/movies/constants';
 
 // Movies Reducer State.
 const initState = {
@@ -45,6 +48,13 @@ const initState = {
     errorModal : {
         isVisible : false,
         errors : []
+    },
+    // New Movie Modal.
+    // isVisible - true, modal displayed.
+    // name - input field content.
+    NewModal : {
+        isVisible : false,
+        name : ''
     }
 }
 
@@ -349,6 +359,25 @@ export default (state = initState, { type, payload }) => {
                     movies : moviesUpdate,
                 }
             }
+
+        // Toggle new Movie Modal State.
+        case TOGGLE_NEW_MODAL:
+            let NewModalUpdate = Object.assign({}, state.NewModal);
+            NewModalUpdate.isVisible = !NewModalUpdate.isVisible;
+            return {
+                ...state,
+                NewModal : NewModalUpdate
+            }
+
+        // NewModal input content.
+        case NEW_MODAL_INPUT:
+            let NewModalInput = Object.assign({}, state.NewModal);
+            NewModalInput.name = payload;
+            return {
+                ...state,
+                NewModal : NewModalInput
+            }
+
         // --- default case, return state.
         default:
             return state

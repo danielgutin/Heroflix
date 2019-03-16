@@ -31,3 +31,9 @@ export const SUBMIT_EDIT_MODAL = 'SUBMIT_EDIT_MODAL';
 // toggle error Modal.
 export const TOGGLE_ERROR_MODAL = 'TOGGLE_ERROR_MODAL';
 
+// toggle new movie Modal.
+export const TOGGLE_NEW_MODAL = 'TOGGLE_NEW_MODAL';
+
+// new modal input enter.
+export const NEW_MODAL_INPUT = 'NEW_MODAL_INPUT';
+
