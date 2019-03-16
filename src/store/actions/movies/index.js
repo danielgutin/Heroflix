@@ -122,7 +122,7 @@ export const addMovie = ( name ) => {
             .catch((err) => {
                 swal( "Oops" ,  `Could not find ${err}` ,  "error" )
                 console.log(err);
-            }
+            })
         })
         // notify user about failure result.
         .catch((err) => {
