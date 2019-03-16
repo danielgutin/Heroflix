@@ -1,3 +1,6 @@
+.ErrorModal_window {
+    overflow-y: auto;
+}
 .ErrorModal_content {
     text-align: center;
 }
@@ -17,14 +20,12 @@
 
 .ErrorModal_content ul {
     font-size: 1rem;
-    width: 60%;
+    width: 80%;
     margin: 0 auto;
+    text-align: left;
 }
 
 .ErrorModal_content ul li {
     margin-bottom: var(--sp-md);
-    background-color: var(--main-color);
-    color: #fff;
-    border-radius: .2rem;
-    padding: var(--sp-sm);
+    font-weight: bold;
 }

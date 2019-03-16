@@ -3,6 +3,9 @@
 // 1. managing the movie list ( list of movie Obj ).
 // 2. modals related to movie.
 
+// Cool alert Lib.
+import swal from 'sweetalert';
+
 // relevant constants.
 import { 
     GET_MOVIES_FROM_API,
@@ -102,7 +105,7 @@ export default (state = initState, { type, payload }) => {
             let editModalFields = Object.assign({}, state.editModal);
             // Update editModal Fields.
             // id filled & remains untouched.
-            editModalFields.fields['id'] = payload;
+            editModalFields.fields['id'] = relevantMovie[0].id;
             editModalFields.fields['title'] = relevantMovie[0].title;
             editModalFields.fields['runtime'] = relevantMovie[0].runtime;
             editModalFields.fields['release_date'] = relevantMovie[0].release;
@@ -239,7 +242,7 @@ export default (state = initState, { type, payload }) => {
         case SUBMIT_EDIT_MODAL:
             // Movies & editModal clones.
             let editModalSubmit = Object.assign({}, state.editModal);
-            let moviesUpdate = Object.assign({}, state.movies);
+            let moviesUpdate = Object.assign([], state.movies);
             let errorModalSubmit = Object.assign({}, state.errorModal);
 
             // 1.validate the different fields.
@@ -254,7 +257,7 @@ export default (state = initState, { type, payload }) => {
             // 2.extra validation for title field.
             let fixedTitle = editModalSubmit.fields['title'].split(' ').map((word) => {
                 // Omitting any invalid letter with regx.
-                word = word.replace(/[^a-z\-]/gi, '');
+                word = word.replace(/[^a-z\-0-9:]/gi, '');
                 // uppercase the first letter, lowercase the rest.
                 word = word.charAt(0).toUpperCase() + word.substr(1).toLowerCase();
                 // return fixed word.
@@ -267,7 +270,8 @@ export default (state = initState, { type, payload }) => {
             let isUnique = true;
             // loop through movies & compare the new title to the rest of titles.
             Object.entries(moviesUpdate).forEach((movie) => {
-                if (movie[1].title === editModalSubmit.fields['title']) {
+                // second statment ( with id ), makes sure not comparing edit movie with itself.
+                if (movie[1].title === editModalSubmit.fields['title'] &&  movie[1].id !== editModalSubmit.fields['id']) {
                     isUnique = false;
                 }
             })
@@ -297,17 +301,53 @@ export default (state = initState, { type, payload }) => {
                         monthLength[1] = 29;
 
                     //Check the range of the day for current specified month.
-                    if(!day > 0 && day <= monthLength[month - 1]) 
-                     errorModalSubmit.errors = [...errorModalSubmit.errors, 'Invalid Date format ( yyyy-mm-dd )'];
-                    
+                    if(!(day > 0 && day <= monthLength[month - 1])) {
+                        errorModalSubmit.errors = [...errorModalSubmit.errors, 'Invalid Date format ( day not exist, check your calendar ) '];
+                    }               
                 }else {
-                    errorModalSubmit.errors = [...errorModalSubmit.errors, 'Invalid Date format ( yyyy-mm-dd )'];
+                    errorModalSubmit.errors = [...errorModalSubmit.errors, 'Invalid Date format ( invalid month / year )'];
                 }
+            }else {
+                errorModalSubmit.errors = [...errorModalSubmit.errors, 'Invalid Date format ( yyyy-mm-dd )'];
             }
 
-            console.log(errorModalSubmit.errors);
-            return {
-                ...state
+            // After all validating now based on errors prop check if any error occurred.
+            if ( errorModalSubmit.errors.length > 0 ) {
+                //display modal with errors.
+                errorModalSubmit.isVisible = true;
+                return {
+                    ...state,
+                    errorModal : errorModalSubmit    
+                }
+            }
+            // Errors not found, so procced to stage 4.
+            // 4. find the relevant movie by its id from the movies list inside the store
+            //    and update the relvenat fields.
+            else {
+                //looping through the list of movies.
+                let moviesUpdateList = moviesUpdate.map((movie) => {
+                    //find the relevant movie by its id.
+                    if ( movie.id === editModalSubmit.fields['id'] ) {
+                        movie.production = editModalSubmit.fields['production_companies'];
+                        movie.genres = editModalSubmit.fields['genres'];
+                        movie.release = editModalSubmit.fields['release_date'];
+                        movie.runtime = editModalSubmit.fields['runtime'];
+                        movie.title = editModalSubmit.fields['title'];
+                        return movie;
+                    }
+                    return movie;
+                });
+                // return updated state.
+                // 1. toggle the edit modal.
+                editModalSubmit.isVisible = false;
+                // 2. notify the user about successful Edit.
+                swal( "Successful update" ,  "Movie Item updated successfully" ,  "success" );
+                // 3. return updated state.
+                return {
+                    ...state,
+                    editModal :editModalSubmit,
+                    movies : moviesUpdate,
+                }
             }
         // --- default case, return state.
         default:

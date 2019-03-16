@@ -19,7 +19,9 @@ const ErrorModal = (props) => {
     <div className='ErrorModal'>
         <Modal
             visible={isVisible}
+            style={{ top: 20 }}
             width={550}
+            className='ErrorModal_window'
             title="Error Occurred"
             onCancel={() => props.toggleErrorModalHandler()}
             footer={[
