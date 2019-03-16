@@ -7,8 +7,8 @@ Live Demo :
 will be added soon...
 
 Local computer : 
-if you wish to run the app on your local computer, just clone the repo.
-* install the packages with `npm install` ( both client )
+if you wish to run the app on your local environment, just clone the repo.
+* install the packages with `npm install & npm start`
 
 
 **Heroflix has serval features :**
@@ -17,6 +17,4 @@ if you wish to run the app on your local computer, just clone the repo.
 - [X] Add new Movie to list By Name
 - [X] List of Favorite movies
 
-
-* if you have any suggestions for new features I would love to hear about it.
 

@@ -8,13 +8,14 @@
 
 .SideNav_logo {
     height: 20%;
+    padding-top: var(--sp-lg);
     position: relative;
     text-align: center;
 }
 
 .SideNav_logo img {
-    height: 8rem;
-    width: 8rem;
+    height: 5rem;
+    width: 13rem;
     display: inline-block;
     z-index: 99;
 }

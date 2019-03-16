@@ -157,6 +157,8 @@ export default (state = initState, { type, payload }) => {
 
         // --- Remove Genre By Id.
         // recieve genreID as payload.
+        // if after genre remove the list is empty then
+        // reset the newGenreField, because new genre now can be created.
         case REMOVE_GENRE_BY_ID:
             // Clone the editModal obj.
             let editModalGenreUpdate = Object.assign({}, state.editModal);
@@ -165,6 +167,12 @@ export default (state = initState, { type, payload }) => {
             let updatedGenresArray = editModalGenreUpdate.fields.genres.filter((genre) => genre.id !== payload )
             //update the editModal clone Obj.
             editModalGenreUpdate.fields.genres = updatedGenresArray;
+            //reset newGenreField content.
+            if ( editModalGenreUpdate.fields.genres.length === 0 ) {
+                editModalGenreUpdate.newGenreField['id'] = null;
+                editModalGenreUpdate.newGenreField['name'] = ''
+
+            }
             return {
                 ...state,
                 editModal : editModalGenreUpdate
@@ -186,23 +194,28 @@ export default (state = initState, { type, payload }) => {
         // --- submiting new Genre.
         // 1. generating unique id to genre.
         // 2. adding the genre to the existing genres list.
-        // 3. reset newGenreField obj.
         case SUBMIT_NEW_GENRE:
             //editModal Clone. 
             let editModalNewGenreSubmit = Object.assign({}, state.editModal);
-            //new genre unique id assignment.
-            editModalNewGenreSubmit.newGenreField['id'] =  parseInt(Math.random() * 10000);
-            // creating new genres arr with the new genre item.
-            editModalNewGenreSubmit.fields.genres = [ editModalNewGenreSubmit.newGenreField ];
-            // Reset The fields. ( after 100ms delay, enable smooth update of state. )
-            setTimeout(() => {
-                editModalNewGenreSubmit.newGenreField['id'] = null;
-                editModalNewGenreSubmit.newGenreField['name'] = ''
-            }, 100);
-            return {
-                ...state,
-                editModal : editModalNewGenreSubmit
+            // make sure the input field not empty.
+            if ( editModalNewGenreSubmit.newGenreField['name'] ) {
+                //new genre unique id assignment.
+                editModalNewGenreSubmit.newGenreField['id'] =  parseInt(Math.random() * 10000);
+                // creating new genres arr with the new genre item.
+                editModalNewGenreSubmit.fields.genres = [ editModalNewGenreSubmit.newGenreField ];
+
+                return {
+                    ...state,
+                    editModal : editModalNewGenreSubmit
+                }
+            // if the input field is empty return state.
+            }else {
+                return {
+                    ...state
+                }
             }
+            
+    
 
         // --- toggle error modal.
         case TOGGLE_ERROR_MODAL:
@@ -264,9 +277,35 @@ export default (state = initState, { type, payload }) => {
             }
 
             // 3. extra validation for date input ( correct yyyy-mm-dd format )
-            var dateReg = /^\\d{4}-\d{2}-d{2}$/;
-            console.log(editModalSubmit.fields['release_date'].match(dateReg));
+            // First check for the pattern - if valid continue operations, else add to errors.
+            if (/^(\d{4}|\d{1})\-(\d{2}|\d{1})\-\d{2}$/.test(editModalSubmit.fields['release_date'])) {
+                // Parse the date parts to integers
+                var parts = editModalSubmit.fields['release_date'].split("-");
+                var day = parseInt(parts[2], 10);
+                var month = parseInt(parts[1], 10);
+                var year = parseInt(parts[0], 10);
 
+                // Check the ranges of month and year
+                //year - min 1000 & max current year.
+                // month - 1 up to 12.
+                if(!year < 1000 || year > new Date().getFullYear() || month == 0 || month > 12) {
+                    // all month lengths. 
+                    var monthLength = [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ];
+
+                    // Adjust for leap years
+                    if(year % 400 == 0 || (year % 100 != 0 && year % 4 == 0))
+                        monthLength[1] = 29;
+
+                    //Check the range of the day for current specified month.
+                    if(!day > 0 && day <= monthLength[month - 1]) 
+                     errorModalSubmit.errors = [...errorModalSubmit.errors, 'Invalid Date format ( yyyy-mm-dd )'];
+                    
+                }else {
+                    errorModalSubmit.errors = [...errorModalSubmit.errors, 'Invalid Date format ( yyyy-mm-dd )'];
+                }
+            }
+
+            console.log(errorModalSubmit.errors);
             return {
                 ...state
             }
