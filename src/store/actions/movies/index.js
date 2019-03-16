@@ -28,7 +28,7 @@ export const GetMoviesFromApi = () => {
             res.data.results.forEach((movie, i) => {
                 axios.get(`https://api.themoviedb.org/3/movie/${movie.id}?api_key=02a35c5cbc417952eab0267826fb4b58`)
                 .then((res) => {
-                    dispatch( {type: GET_MOVIES_FROM_API, payload: res.data})
+                    dispatch( {type: GET_MOVIES_FROM_API, payload : { data : res.data, first : true }})
                 })
                 .catch((err) => swal( "Oops" ,  "Error Reading Details About Specific movie" ,  "error" ))
             })
@@ -112,11 +112,9 @@ export const addMovie = ( name ) => {
             axios.get(`https://api.themoviedb.org/3/movie/${res.data.results[0].id}?api_key=02a35c5cbc417952eab0267826fb4b58`)
             .then((res) => {
                 // updathe the movie List.
-                dispatch({ type : GET_MOVIES_FROM_API, payload: res.data });
+                dispatch({ type : GET_MOVIES_FROM_API, payload: {data : res.data, first : false }});
                 // hide NewModal.
                 dispatch({ type: TOGGLE_NEW_MODAL });
-                //notify user about successful addition.
-                swal( "YAY !!" ,  `${name} found & added to movie list` ,  "success" );
             })
             // notify user about failure result.
             .catch((err) => {

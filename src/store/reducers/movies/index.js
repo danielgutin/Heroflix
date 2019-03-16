@@ -19,8 +19,7 @@ import {
     SUBMIT_EDIT_MODAL,
     TOGGLE_ERROR_MODAL,
     TOGGLE_NEW_MODAL,
-    NEW_MODAL_INPUT,
-    NEW_MODAL_ADD_MOVIE } from '../../actions/movies/constants';
+    NEW_MODAL_INPUT } from '../../actions/movies/constants';
 
 // Movies Reducer State.
 const initState = {
@@ -63,7 +62,12 @@ const initState = {
 export default (state = initState, { type, payload }) => {
     switch(type) {
         // --- responsible for adding the movies recieved from the api
-        // --- to the movies property in the state.
+        // to the movies property in the state.
+        // recieve payload : { data: <movieObj>, first : <true / false>  }
+        // data - contains the actual movie data.
+        // first - notify on success addition of movie only when movie added with NewModal.
+        // 1. true on first api call to load all movies.
+        // 2. false when adding new movie with NewModal.
         case GET_MOVIES_FROM_API:
             //extracting the relevant data from the movie Obj.
             const { 
@@ -73,7 +77,8 @@ export default (state = initState, { type, payload }) => {
                 id,
                 genres,
                 poster_path,
-                production_companies } = payload;
+                production_companies } = payload.data;
+            const { first } = payload;
             
             // Movie object.
             let movieObj = {
@@ -85,6 +90,19 @@ export default (state = initState, { type, payload }) => {
                 'image' : `http://image.tmdb.org/t/p/w185/${poster_path}`,
                 'production' : production_companies[0].name
             };
+
+            // Check if movie already exist.
+            // looping through all movies to see if movie id already exist.
+            // if so return state and notify the user that movie exist.
+            if(state.movies.filter((movie) => movie.id === movieObj.id).length > 0) {
+                swal( "OOPS !" ,  `${movieObj.title} Already Exist inside Movie List` ,  "error" );
+                return state;
+            }
+
+            // if movie added through NewModal then notify the user on success addition.
+            if ( !first ) {
+                swal( "YAY !" ,  `${movieObj.title} Added to the Movie List` ,  "success" );
+            }   
             return {
                 ...state,
                 movies : [...state.movies, movieObj],
@@ -364,6 +382,7 @@ export default (state = initState, { type, payload }) => {
         case TOGGLE_NEW_MODAL:
             let NewModalUpdate = Object.assign({}, state.NewModal);
             NewModalUpdate.isVisible = !NewModalUpdate.isVisible;
+            NewModalUpdate.name = '';
             return {
                 ...state,
                 NewModal : NewModalUpdate
