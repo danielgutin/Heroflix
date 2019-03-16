@@ -120,13 +120,13 @@ export const addMovie = ( name ) => {
             })
             // notify user about failure result.
             .catch((err) => {
-                swal( "Oops" ,  `Could not find ${name}` ,  "error" )
+                swal( "Oops" ,  `Could not find ${err}` ,  "error" )
                 console.log(err);
             }
         })
         // notify user about failure result.
         .catch((err) => {
-            swal( "Oops" ,  `Could not find ${name}` ,  "error" )
+            swal( "Oops" ,  `Could not find ${err}` ,  "error" )
             console.log(err);
         })
     }
