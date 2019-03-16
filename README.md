@@ -1,5 +1,5 @@
 
-![alt text](https://github.com/danielgutin/burgero/blob/master/heroflix-gh.png)
+![alt text](https://github.com/danielgutin/Heroflix/blob/master/heroflix-gh.png)
 
 # Herolix - Best Movie Catalog Around
 
