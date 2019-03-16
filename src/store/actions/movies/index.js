@@ -107,7 +107,7 @@ export const newModalInput = (content) => {
 // Add new movie by Name.
 export const addMovie = ( name ) => {
     return dispatch => {
-        axios.get(`http://api.themoviedb.org/3/search/movie?api_key=02a35c5cbc417952eab0267826fb4b58&query=${name}`)
+        axios.get(`https://api.themoviedb.org/3/search/movie?api_key=02a35c5cbc417952eab0267826fb4b58&query=${name}`)
         .then((res) => {
             axios.get(`https://api.themoviedb.org/3/movie/${res.data.results[0].id}?api_key=02a35c5cbc417952eab0267826fb4b58`)
             .then((res) => {
@@ -120,14 +120,12 @@ export const addMovie = ( name ) => {
             })
             // notify user about failure result.
             .catch((err) => {
-                swal( "Oops" ,  `Could not find ${err}` ,  "error" )
-                console.log(err);
+                swal( "Oops" ,  `Could not find ${name}` ,  "error" )
             })
         })
         // notify user about failure result.
         .catch((err) => {
-            swal( "Oops" ,  `Could not find ${err}` ,  "error" )
-            console.log(err);
+            swal( "Oops" ,  `Could not find ${name}` ,  "error" )
         })
     }
 }
