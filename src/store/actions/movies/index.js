@@ -119,9 +119,15 @@ export const addMovie = ( name ) => {
                 swal( "YAY !!" ,  `${name} found & added to movie list` ,  "success" );
             })
             // notify user about failure result.
-            .catch((err) => swal( "Oops" ,  `Could not find ${name}` ,  "error" ))
+            .catch((err) => {
+                swal( "Oops" ,  `Could not find ${name}` ,  "error" )
+                console.log(err);
+            }
         })
         // notify user about failure result.
-        .catch((err) => swal( "Oops" ,  `Could not find ${name}` ,  "error" ))
+        .catch((err) => {
+            swal( "Oops" ,  `Could not find ${name}` ,  "error" )
+            console.log(err);
+        })
     }
 }
