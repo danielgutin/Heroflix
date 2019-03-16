@@ -239,17 +239,33 @@ export default (state = initState, { type, payload }) => {
             })
 
             // 2.extra validation for title field.
-            editModalSubmit.fields['title'].split(' ').forEach((word) => {
+            let fixedTitle = editModalSubmit.fields['title'].split(' ').map((word) => {
                 // Omitting any invalid letter with regx.
-                word = word.replace(/[^0-9a-z]/gi, '');
-
+                word = word.replace(/[^a-z\-]/gi, '');
                 // uppercase the first letter, lowercase the rest.
                 word = word.charAt(0).toUpperCase() + word.substr(1).toLowerCase();
-                console.log(word);
+                // return fixed word.
+                return word
             })
+            //updating the title by combining all the fixed words.
+            editModalSubmit.fields['title'] = fixedTitle.join(' ');
 
-            console.log(editModalSubmit.fields['title']);
+            // check that title is unique.
+            let isUnique = true;
+            // loop through movies & compare the new title to the rest of titles.
+            Object.entries(moviesUpdate).forEach((movie) => {
+                if (movie[1].title === editModalSubmit.fields['title']) {
+                    isUnique = false;
+                }
+            })
+            // if not unique add error to list.
+            if(!isUnique) {
+                errorModalSubmit.errors = [...errorModalSubmit.errors, 'Title Already Exist'];
+            }
 
+            // 3. extra validation for date input ( correct yyyy-mm-dd format )
+            var dateReg = /^\\d{4}-\d{2}-d{2}$/;
+            console.log(editModalSubmit.fields['release_date'].match(dateReg));
 
             return {
                 ...state
