@@ -24,7 +24,7 @@
 }
 
 
-.SideNav_menu_items-item:first-of-type::before {
+.SideNav_menu_items-item.active::before {
     content: '';
     position: absolute;
     left: 0;

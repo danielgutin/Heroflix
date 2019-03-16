@@ -33,10 +33,10 @@ const MovieItem = (props) => {
             </ul>
             <div className="MovieItem_buttons">
                 <button 
-                    className="MovieItem_buttons-button MovieItem_button-edit"
+                    className="button MovieItem_buttons-button MovieItem_button-edit"
                     onClick={() => props.editModalHandler(id)}>Edit</button>
                 <button 
-                    className="MovieItem_buttons-button  MovieItem_button-add"
+                    className="button MovieItem_buttons-button  MovieItem_button-add"
                     onClick={() => console.log('add to list')}>Add to list</button>
             </div>
         </div>

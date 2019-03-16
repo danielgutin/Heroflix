@@ -21,7 +21,7 @@
 }
 
 .MovieItem .MovieItem_content > * {
-    margin-bottom: .1rem;
+    margin-bottom: .3rem;
 }
 
 
@@ -56,16 +56,10 @@
 }
 
 .MovieItem_buttons-button {
+    position: absolute;
     font-size: 1rem;
-    color: #fff;
-    background-color: var(--main-color);
-    border: none;
     border-radius: .3rem;
     padding: .2rem .5rem;
-    cursor: pointer;
-    transition: all .3s ease;
-    position: absolute;
-    outline: none;
 }
 
 .MovieItem_buttons-button:hover {

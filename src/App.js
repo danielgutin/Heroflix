@@ -12,7 +12,7 @@ import { Route, Switch } from 'react-router-dom';
 import Movies from './components/Movies/Movies';
 import SideNav from './components/SideNav/SideNav';
 import Favorites from './components/Favorites/Favorites';
-import Setting from './components/Setting/Setting';
+
 // different app modals.
 import EditModal from './components/modals/EditModal/EditModal';
 import ErrorModal from './components/modals/ErrorModal/ErrorModal';
@@ -28,7 +28,6 @@ class App extends Component {
               <Switch>
                 <Route exact path='/' component={Movies}/>
                 <Route exact path='/my_list' component={Favorites}/>
-                <Route exact path='/setting' component={Setting}/>
               </Switch>
             </div>
           </div>

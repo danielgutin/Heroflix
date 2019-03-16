@@ -32,5 +32,10 @@ body {
 
 /* Default Shared & reuseable Button Styling */
 .button {
-
+  background-color: var(--main-color);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #fff;
+  transition: all .3s ease;
 }

@@ -12,11 +12,6 @@ import MovieItem from './MovieItem/MovieItem';
 
 // Movies Class.
 class Movies extends Component {
-  // init Movies.
-  constructor(props) {
-    super(props);
-  }
-
 
   //using componendDidMount for Api call purposes.
   componentDidMount() {

@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import { toggleNewModal } from '../../store/actions/movies';
 
 // components
-import { Tooltip, Button } from 'antd';
+import { Tooltip } from 'antd';
 import SocialMenu from './SocialMenu/SocialMenu';
 import SideNavMenu from './SideNavMenu/SideNavMenu';
 
@@ -23,7 +23,7 @@ const SideNav = (props) => {
         <SocialMenu />
         <Tooltip placement="left" title={'Add new Movie'}>
           <button 
-            className="Movies-add"
+            className="button Movies-add"
             onClick={() => props.toggleNewModalHandler()}></button>
         </Tooltip>
     </div>

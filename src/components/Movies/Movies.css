@@ -2,8 +2,8 @@
     background-color: var(--shadow-color);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 21rem;
-    grid-auto-rows: 21rem;
+    grid-template-rows: 37vh;
+    grid-auto-rows: 37vh;
     grid-gap: var(--sp-lg);
     padding: var(--sp-md);
     overflow-y: auto;

@@ -25,13 +25,7 @@
     height: 2rem;
     width: 2.5rem;
     border-radius: 10%;
-    border: none;
-    background-color: var(--main-color);
-    color: #fff;
-    cursor: pointer;
     font-weight: bold;
-    transition: all .3s ease;
-    outline: none;
 }
 
 .EditModal_fields-genres button:hover {

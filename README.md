@@ -4,7 +4,7 @@
 # Herolix - Best Movie Catalog Around
 
 Live Demo : 
-will be added soon...
+https://herolix.herokuapp.com/
 
 Local computer : 
 if you wish to run the app on your local environment, just clone the repo.

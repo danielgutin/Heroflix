@@ -310,7 +310,7 @@ export default (state = initState, { type, payload }) => {
 
             // 3. extra validation for date input ( correct yyyy-mm-dd format )
             // First check for the pattern - if valid continue operations, else add to errors.
-            if (/^(\d{4}|\d{1})\-(\d{2}|\d{1})\-\d{2}$/.test(editModalSubmit.fields['release_date'])) {
+            if (/^(\d{4}|\d{1})-(\d{2}|\d{1})-\d{2}$/.test(editModalSubmit.fields['release_date'])) {
                 // Parse the date parts to integers
                 var parts = editModalSubmit.fields['release_date'].split("-");
                 var day = parseInt(parts[2], 10);
@@ -320,12 +320,12 @@ export default (state = initState, { type, payload }) => {
                 // Check the ranges of month and year
                 //year - min 1000 & max current year.
                 // month - 1 up to 12.
-                if(!year < 1000 || year > new Date().getFullYear() || month == 0 || month > 12) {
+                if(!year < 1000 || year > new Date().getFullYear() || month === 0 || month > 12) {
                     // all month lengths. 
                     var monthLength = [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ];
 
                     // Adjust for leap years
-                    if(year % 400 == 0 || (year % 100 != 0 && year % 4 == 0))
+                    if(year % 400 === 0 || (year % 100 !== 0 && year % 4 === 0))
                         monthLength[1] = 29;
 
                     //Check the range of the day for current specified month.
@@ -353,7 +353,7 @@ export default (state = initState, { type, payload }) => {
             //    and update the relvenat fields.
             else {
                 //looping through the list of movies.
-                let moviesUpdateList = moviesUpdate.map((movie) => {
+                moviesUpdate.map((movie) => {
                     //find the relevant movie by its id.
                     if ( movie.id === editModalSubmit.fields['id'] ) {
                         movie.production = editModalSubmit.fields['production_companies'];

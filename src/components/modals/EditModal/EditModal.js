@@ -20,7 +20,6 @@ const EditModal = (props) => {
     // properties used for edit modal.
     const { isVisible, newGenreField } = props.movies.editModal;
     const {
-        id,  
         title,
         runtime,
         release_date,
@@ -70,7 +69,7 @@ const EditModal = (props) => {
                                 value={genre.name} 
                                 onChange={(e) => props.editModalChangeHandler('genres', [genre.id, e.target.value])}
                                 />
-                            <button onClick={() => props.editModalremoveGenreHandler(genre.id)}>X</button>
+                            <button className='button' onClick={() => props.editModalremoveGenreHandler(genre.id)}>X</button>
                         </div>))
                     : <div>
                         <input 
