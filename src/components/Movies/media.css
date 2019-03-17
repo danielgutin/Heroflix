@@ -78,9 +78,8 @@ Media Queries for Movies.js
 @media screen and (max-width:590px) {
     .Movies {
         grid-template-columns: 1fr;
-        grid-template-rows: 75vh;
+        grid-template-rows: 55vh;
         grid-auto-rows: 55vh;
-        grid-gap: var(--sp-lg);
-        padding: 4rem
+        padding: 20vw;
     } 
 }

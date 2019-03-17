@@ -1,5 +1,5 @@
 // React & Styling.
-import React, { Component } from 'react';
+import React from 'react';
 import './BurgerNavBar.css';
 import './media.css';
 

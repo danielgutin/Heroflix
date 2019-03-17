@@ -1,6 +1,7 @@
 // React stuff & Styling.
 import React from 'react';
 import './EditModal.css';
+import './media.css';
 
 // Redux Stuff.
 import { connect } from 'react-redux';
