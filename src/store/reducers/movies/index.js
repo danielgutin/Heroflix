@@ -19,7 +19,9 @@ import {
     SUBMIT_EDIT_MODAL,
     TOGGLE_ERROR_MODAL,
     TOGGLE_NEW_MODAL,
-    NEW_MODAL_INPUT } from '../../actions/movies/constants';
+    NEW_MODAL_INPUT,
+    TOGGLE_REMOVE_MODAL,
+    REMOVE_MOVIE_BY_ID } from '../../actions/movies/constants';
 
 // Movies Reducer State.
 const initState = {
@@ -54,6 +56,12 @@ const initState = {
     NewModal : {
         isVisible : false,
         name : ''
+    },
+    // RemoveModal
+    RemoveModal : {
+        isVisible : false,
+        id : null,
+        title : ''
     }
 }
 
@@ -378,7 +386,7 @@ export default (state = initState, { type, payload }) => {
                 }
             }
 
-        // Toggle new Movie Modal State.
+        // --- Toggle new Movie Modal State.
         case TOGGLE_NEW_MODAL:
             let NewModalUpdate = Object.assign({}, state.NewModal);
             NewModalUpdate.isVisible = !NewModalUpdate.isVisible;
@@ -388,13 +396,48 @@ export default (state = initState, { type, payload }) => {
                 NewModal : NewModalUpdate
             }
 
-        // NewModal input content.
+        // --- NewModal input content.
         case NEW_MODAL_INPUT:
             let NewModalInput = Object.assign({}, state.NewModal);
             NewModalInput.name = payload;
             return {
                 ...state,
                 NewModal : NewModalInput
+            }
+
+        // --- Toggle remove modal by movie ID.
+        // payload - movieID
+        case TOGGLE_REMOVE_MODAL:
+            // clone RemoveModal
+            let RemoveModalUpdate = Object.assign({}, state.RemoveModal);
+            //toggle modal display.
+            RemoveModalUpdate.isVisible = !RemoveModalUpdate.isVisible;
+            // update id & title fields.
+            RemoveModalUpdate.id = payload.id;
+            RemoveModalUpdate.title = payload.title;
+            return {
+                ...state,
+                RemoveModal : RemoveModalUpdate
+            }
+        
+        // Remove movie from list by its id.
+        // 1. find the moive by its id & remove.
+        // 2. notify the user about successful remove.
+        // 3. toggle the RemoveModal.
+        case REMOVE_MOVIE_BY_ID:
+            //clone remove modal. 
+            let RemoveModalRemove = Object.assign({}, state.RemoveModal);
+            // remove movie from list by its id.
+            let updatedMovies = state.movies.filter((movie) => movie.id !== payload.id);
+            // notify the user about successful remove.
+            swal( "Successful Remove" ,  "Movie Item Removed successfully" ,  "success" );
+            // toggle the RemoveModalState.
+            RemoveModalRemove.isVisible = false;
+            //return updated state.
+            return {
+                ...state,
+                movies : updatedMovies,
+                RemoveModal : RemoveModalRemove
             }
 
         // --- default case, return state.

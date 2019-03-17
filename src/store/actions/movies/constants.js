@@ -37,3 +37,9 @@ export const TOGGLE_NEW_MODAL = 'TOGGLE_NEW_MODAL';
 // new modal input enter.
 export const NEW_MODAL_INPUT = 'NEW_MODAL_INPUT';
 
+// toggle RemoveModal
+export const TOGGLE_REMOVE_MODAL = 'TOGGLE_REMOVE_MODAL';
+
+// RemoveModal, remove movie from list by id.
+export const REMOVE_MOVIE_BY_ID = 'REMOVE_MOVIE_BY_ID';
+

@@ -69,10 +69,15 @@
 
 .MovieItem_buttons-button.MovieItem_button-edit {
     bottom: 5%;
-    left: 15%;
+    left: 5%;
 }
 
 .MovieItem_buttons-button.MovieItem_button-add {
     bottom: 5%;
-    left: 45%;
+    left: 30%;
+}
+
+.MovieItem_buttons-button.MovieItem_button-remove {
+    bottom: 5%;
+    left: 70%;
 }

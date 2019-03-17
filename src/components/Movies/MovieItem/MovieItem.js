@@ -5,7 +5,7 @@ import './media.css';
 
 // Redux Stuff.
 import { connect } from 'react-redux';
-import { editModal } from '../../../store/actions/movies';
+import { editModal, toggleRemoveModal } from '../../../store/actions/movies';
 
 const MovieItem = (props) => {
     // Movie Obj.
@@ -38,6 +38,9 @@ const MovieItem = (props) => {
                 <button 
                     className="button MovieItem_buttons-button  MovieItem_button-add"
                     onClick={() => console.log('add to list')}>Add to list</button>
+                <button 
+                    className="button MovieItem_buttons-button  MovieItem_button-remove"
+                    onClick={() => props.toggleRemoveModalHandler(id, title)}>Remove</button>
             </div>
         </div>
     </div>
@@ -54,7 +57,8 @@ const mapStateToProps = state => {
 // Map actions to Component Props.
 const mapDispatchToProps = dispatch => {
     return {
-        editModalHandler : (id) => dispatch(editModal(id))
+        editModalHandler : (id) => dispatch(editModal(id)),
+        toggleRemoveModalHandler : (id, title) => dispatch(toggleRemoveModal(id, title))
     }
 }
 

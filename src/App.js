@@ -18,6 +18,7 @@ import BurgerNavBar from './components/SideNav/BurgerNavBar/BurgerNavBar';
 import EditModal from './components/modals/EditModal/EditModal';
 import ErrorModal from './components/modals/ErrorModal/ErrorModal';
 import NewModal from './components/modals/NewModal/NewModal';
+import RemoveModal from './components/modals/RemoveModal/RemoveModal';
 
 class App extends Component {
   render() {
@@ -36,6 +37,7 @@ class App extends Component {
           <ErrorModal />
           <NewModal />
           <BurgerNavBar />
+          <RemoveModal />
         </div>
     );
   }

@@ -13,7 +13,9 @@ import {
     SUBMIT_EDIT_MODAL,
     TOGGLE_ERROR_MODAL,
     TOGGLE_NEW_MODAL,
-    NEW_MODAL_INPUT } from './constants';
+    NEW_MODAL_INPUT,
+    TOGGLE_REMOVE_MODAL,
+    REMOVE_MOVIE_BY_ID } from './constants';
 
 // this function calls the TMDB api & recieve list of 20 random movies.
 // second api call is with each movie id that recived for extra information about the movie.
@@ -126,4 +128,17 @@ export const addMovie = ( name ) => {
             swal( "Oops" ,  `Could not find ${name}` ,  "error" )
         })
     }
+}
+
+// open Remove modal, recieve 2 props. 
+// id - the id of the selected movie.
+// title - the name of the selected movie.
+export const toggleRemoveModal = (id, title) => {
+    return { type : TOGGLE_REMOVE_MODAL, payload : { id, title }}
+}
+
+
+// Remove Movie from list by its ID.
+export const removeMovieById = ( id )  => {
+    return { type : REMOVE_MOVIE_BY_ID, payload : id}
 }
