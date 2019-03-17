@@ -12,6 +12,7 @@ import { Route, Switch } from 'react-router-dom';
 import Movies from './components/Movies/Movies';
 import SideNav from './components/SideNav/SideNav';
 import Favorites from './components/Favorites/Favorites';
+import BurgerNavBar from './components/SideNav/BurgerNavBar/BurgerNavBar';
 
 // different app modals.
 import EditModal from './components/modals/EditModal/EditModal';
@@ -34,6 +35,7 @@ class App extends Component {
           <EditModal />
           <ErrorModal />
           <NewModal />
+          <BurgerNavBar />
         </div>
     );
   }

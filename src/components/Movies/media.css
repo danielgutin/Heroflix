@@ -54,10 +54,33 @@ Media Queries for Movies.js
     }
 
     .Movies {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         grid-template-rows: 47vh;
         grid-auto-rows: 47vh;
         grid-gap: var(--sp-md);
         padding: var(--sp-md);
+    } 
+}
+
+
+/* Large Phones Screen */
+@media screen and (max-width:750px) {
+    .Movies {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 55vh;
+        grid-auto-rows: 55vh;
+        grid-gap: var(--sp-lg);
+        padding: var(--sp-lg);
+    } 
+}
+
+/* Medium / small  Phones Screen */
+@media screen and (max-width:590px) {
+    .Movies {
+        grid-template-columns: 1fr;
+        grid-template-rows: 75vh;
+        grid-auto-rows: 55vh;
+        grid-gap: var(--sp-lg);
+        padding: 4rem
     } 
 }

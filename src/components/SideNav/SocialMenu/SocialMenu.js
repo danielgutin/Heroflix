@@ -1,5 +1,6 @@
 import React from 'react';
 import './SocialMenu.css';
+import './media.css';
 
 export default function SocialMenu() {
   return (

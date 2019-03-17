@@ -1,0 +1,19 @@
+/* Tablet Screen */
+@media screen and (max-width:1100px) {
+    .SocialMenu_wrapper {
+        position: absolute;
+        top: 20%;
+        left: 8%;
+        transform: translate(-50%, -50%);
+      }
+      .SocialMenu a {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+        line-height: 38px;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        border-radius: 4px;
+        margin: 0 3px;
+      }
+}

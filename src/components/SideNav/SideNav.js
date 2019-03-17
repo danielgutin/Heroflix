@@ -15,7 +15,7 @@ import SideNavMenu from './SideNavMenu/SideNavMenu';
 
 const SideNav = (props) => {
   return (
-    <div className='SideNav'>
+    <div className={props.general ? 'SideNav SideNav-toggled' : 'SideNav'}>
         <div className="SideNav_logo">
           <img src={logo} alt="Logo"/>
         </div>
@@ -33,7 +33,8 @@ const SideNav = (props) => {
 // Map Store props into component props.
 const mapStateToProps = state => {
   return {
-    movies : state.movies
+    movies : state.movies,
+    general : state.general.burgerNav
   }
 }
 

@@ -1,5 +1,5 @@
 /**************************
-Media Queries for Movies.js 
+Media Queries for SideNav.js 
 ***************************/
 /* Extra Large Screens */
 @media screen and (min-width:1920px) {
@@ -31,5 +31,47 @@ Media Queries for Movies.js
         position: absolute;
         bottom: 0%;
         right: 25%;
+    }
+}
+
+/* Tablet Screen */
+@media screen and (max-width:1100px) {
+    .SideNav {
+        height: 4rem;
+        opacity: 0;
+        transition: all .5s ease;
+    }
+
+    .SideNav.SideNav-toggled  {
+        height: 100%;
+        opacity: 1;
+    }
+
+    .SideNav_logo img {
+        height: 4rem;
+    }
+    
+    .Movies-add {
+        position: absolute;
+        top: 19%;
+        left: 20%;
+        transform: translate(-50%, -50%);
+        height: 2.3rem;
+        width: 5rem;
+        border-radius: .2rem;
+        box-shadow: 2px 3px 4px rgba(0,0,0,.2);
+    }
+    
+    .Movies-add:active,
+    .Movies-add:hover {
+        top: 21%;
+    }
+    
+    .Movies-add::after {
+        content: 'New';
+        position: absolute;
+        bottom: 10%;
+        right: 25%;
+        font-size: 1.5rem;
     }
 }
