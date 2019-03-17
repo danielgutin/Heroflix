@@ -2,9 +2,24 @@
 @media screen and (max-width:1100px) {
     .BurgerNavBar {
         display: block;
-        background-color: var(--main-color);
         width: 45px;
         height: 45px;
         border-radius: 10%;
+    }
+
+    .BurgerNavBar::after {
+        width: 97%;
+        z-index: -1;
+      }
+}
+
+/* Medium / small  Phones Screen */
+@media screen and (max-width:590px) {
+    .BurgerNavBar img {
+        position: fixed;
+        display: block;
+        top: 1%;
+        left: 2%;
+        height: 3rem;
     }
 }

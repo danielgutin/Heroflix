@@ -2,6 +2,7 @@
 import React from 'react';
 import './BurgerNavBar.css';
 import './media.css';
+import logo from '../../../assets/logo2.png';
 
 // Redux Stuff.
 import { connect } from 'react-redux';
@@ -15,6 +16,7 @@ const BurgerNavBar = (props) => {
                 <div className="bar2"></div>
                 <div className="bar3"></div>
             </div>
+            <img src={logo} alt="Heroflix"/>
         </div>
     )
 } 

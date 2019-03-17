@@ -79,7 +79,7 @@ const EditModal = (props) => {
                         placeholder='add new Category'
                         onChange={(e) => props.editModalNewGenreInputHandler(e.target.value)}
                         />
-                        <button className='new-genre' onClick={() => props.editModalSubmitNewGenreHandler()}>add</button>
+                        <button className='button new-genre' onClick={() => props.editModalSubmitNewGenreHandler()}>add</button>
                     </div>
                     
                 }

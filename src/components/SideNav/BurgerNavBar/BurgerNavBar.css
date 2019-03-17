@@ -2,8 +2,12 @@
     position: absolute;
     top: 1%;
     right: 5%;
-    z-index: 999;
+    z-index: 20;
     display: none;
+}
+
+.BurgerNavBar img {
+  display: none;
 }
 
 .container {
@@ -37,4 +41,16 @@
   .change .bar3 {
     -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
     transform: rotate(45deg) translate(-8px, -8px) ;
+  }
+
+
+  .BurgerNavBar::after {
+    content: '';
+    position: fixed;
+    top:0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.534);
+    height: 4rem;
+    width: 96%;
+    z-index:-1;
   }
