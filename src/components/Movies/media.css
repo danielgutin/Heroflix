@@ -5,8 +5,8 @@ Media Queries for Movies.js
 @media screen and (min-width:1920px) {
     .Movies {
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: 39vh;
-        grid-auto-rows: 39vh;
+        grid-template-rows: 41vh;
+        grid-auto-rows: 41vh;
         grid-gap: var(--sp-lg);
         padding: var(--sp-md);
     } 

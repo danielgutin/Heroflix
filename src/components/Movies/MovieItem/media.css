@@ -11,6 +11,33 @@ Media Queries for MovieItem.js
     .MovieItem .MovieItem_content h3 {
         font-size: .9rem;
     }
+
+    .MovieItem_buttons-button.MovieItem_button-edit {
+        top: 72%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 8rem;
+        padding: .1rem;
+
+    }
+    
+    .MovieItem_buttons-button.MovieItem_button-add {
+        top: 94%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 8rem;
+        padding: .1rem;
+
+    }
+    
+    .MovieItem_buttons-button.MovieItem_button-remove {
+        top: 83%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 8rem;
+        padding: .1rem;
+    }
+    
 }
 
 
@@ -40,4 +67,6 @@ Media Queries for MovieItem.js
     .MovieItem .MovieItem_content h3 {
         font-size: 1rem;
     }
+
+
 }

@@ -23,3 +23,22 @@
 	top: 88%;
 	left: 45%;
 }
+
+.Favorites-empty {
+	position: absolute;
+	top: 50%;
+	left: 62%;
+	transform: translate(-50%, -50%);
+	color: #eee;
+	text-align: center;
+	width: 74%;
+}
+
+.Favorites-empty img {
+	height: 20vw;
+}
+
+.Favorites-empty span {
+	font-size: 1.5vw;
+
+}

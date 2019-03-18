@@ -4,7 +4,7 @@ Media Queries for App.js
 /* Extra Large Screens */
 @media screen and (min-width:1920px) {
     .app_container {
-        height: 85vh;
+        height: 90vh;
     }
 
     .app_container-content {

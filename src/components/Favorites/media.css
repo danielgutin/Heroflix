@@ -65,6 +65,20 @@ Media Queries for Favorites.js
         top: 88%;
         left: 50%;
     }
+
+    .Favorites-empty {
+        left: 50%;
+    }
+    
+    .Favorites-empty img {
+        height: 35vw;
+    }
+    
+    .Favorites-empty span {
+        font-size: 2.2vw;
+    
+    }
+
 }
 
 
@@ -77,6 +91,17 @@ Media Queries for Favorites.js
         grid-gap: var(--sp-lg);
         padding: var(--sp-lg);
     } 
+
+
+    .Favorites-empty img {
+        height: 55vw;
+    }
+    
+    .Favorites-empty span {
+        font-size: 4vw;
+        display: block;
+    
+    }
 }
 
 /* Medium / small  Phones Screen */
