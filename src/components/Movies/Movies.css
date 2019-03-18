@@ -1,18 +1,15 @@
-.Movies::-webkit-scrollbar-track
-{
+.Movies::-webkit-scrollbar-track {
 	-webkit-box-shadow: inset 0 0 6px var(--shadow-color);
 	border-radius: .2rem;
 	background-color: var(--shadow-color);
 }
 
-.Movies::-webkit-scrollbar
-{
+.Movies::-webkit-scrollbar {
 	width: 12px;
 	background-color: var(--shadow-color);
 }
 
-.Movies::-webkit-scrollbar-thumb
-{
+.Movies::-webkit-scrollbar-thumb {
 	border-radius: .4rem;
 	-webkit-box-shadow: inset 0 0 6px var(--shadow-color);
 	background-color: rgba(214, 41, 41, 0.781);

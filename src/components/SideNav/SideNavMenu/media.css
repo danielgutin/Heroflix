@@ -5,7 +5,7 @@ Media Queries for SideNavMenu.js
 @media screen and (min-width:1920px) {
     .SideNav_menu_items-item {
         font-size: 1.5rem;
-        margin-bottom:  0;
+        margin-bottom: 0;
     }
 }
 
@@ -15,7 +15,7 @@ Media Queries for SideNavMenu.js
         padding-top: var(--sp-lg);
         z-index: 999;
     }
-    
+
     .SideNav_menu_items {
         list-style: none;
         margin-top: 0rem;
@@ -26,7 +26,7 @@ Media Queries for SideNavMenu.js
         font-size: 1.5rem;
         margin: 0;
     }
-    
+
 }
 
 
@@ -35,5 +35,5 @@ Media Queries for SideNavMenu.js
     .SideNav_menu {
         padding-top: 4rem;
         z-index: 999;
-    }  
+    }
 }

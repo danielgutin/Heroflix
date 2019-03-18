@@ -8,9 +8,10 @@
 
 .SideNav_menu_items-item {
     font-size: 1.5rem;
-    margin-bottom:  var(--sp-lg);
+    margin-bottom: var(--sp-lg);
     color: var(--second-color);
     position: relative;
+    -webkit-transition: all .3s ease;
     transition: all .3s ease;
     padding: var(--sp-sm) 0;
     cursor: pointer;
@@ -21,6 +22,10 @@
     display: inline-block;
     padding-left: var(--sp-lg);
     transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
 }
 
 
@@ -42,4 +47,3 @@
 .SideNav_menu_items-item:hover .fas {
     color: var(--main-color);
 }
-

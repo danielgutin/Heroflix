@@ -7,6 +7,7 @@ import logo from '../../assets/logo2.png';
 // Redux Stuff.
 import { connect } from 'react-redux';
 import { toggleNewModal } from '../../store/actions/movies';
+import { toggleResponsiveNav } from '../../store/actions/general';
 
 // components
 import { Tooltip } from 'antd';
@@ -24,7 +25,10 @@ const SideNav = (props) => {
         <Tooltip placement="left" title={'Add new Movie'}>
           <button 
             className="button Movies-add"
-            onClick={() => props.toggleNewModalHandler()}></button>
+            onClick={() => {
+              props.toggleResponsiveNavHandler()
+              props.toggleNewModalHandler()
+            }}></button>
         </Tooltip>
     </div>
   )
@@ -41,7 +45,8 @@ const mapStateToProps = state => {
 // Map dispatch actions into component props.
 const mapDispatchToProps = dispatch => {
   return {
-      toggleNewModalHandler : () => dispatch(toggleNewModal())
+      toggleNewModalHandler : () => dispatch(toggleNewModal()),
+      toggleResponsiveNavHandler : () => dispatch(toggleResponsiveNav())
   }
 }
 

@@ -7,7 +7,7 @@ Media Queries for MovieItem.js
         font-size: .7rem;
         letter-spacing: .02rem;
     }
-    
+
     .MovieItem .MovieItem_content h3 {
         font-size: .9rem;
     }
@@ -15,55 +15,67 @@ Media Queries for MovieItem.js
     .MovieItem_buttons-button.MovieItem_button-edit {
         top: 72%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
         width: 8rem;
         padding: .1rem;
 
     }
-    
+
     .MovieItem_buttons-button.MovieItem_button-add {
         top: 94%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
         width: 8rem;
         padding: .1rem;
 
     }
-    
+
     .MovieItem_buttons-button.MovieItem_button-remove {
         top: 83%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
         width: 8rem;
         padding: .1rem;
     }
-    
+
 }
 
 
 /* Large Phones Screen */
-@media screen and (max-width:750px) {
+@media screen and (max-width:1100px) {
     .MovieItem_buttons-button.MovieItem_button-edit {
-        top: 74%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 10rem;
-    }
-    
+                top: 74%;
+                left: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                width: 10rem;
+                -moz-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                -o-transform: translate(-50%, -50%);
+}
+
     .MovieItem_buttons-button.MovieItem_button-add {
         top: 94%;
         left: 50%;
         transform: translate(-50%, -50%);
         width: 10rem;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
     }
-    
+
     .MovieItem_buttons-button.MovieItem_button-remove {
         top: 84%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
         width: 10rem;
     }
-    
+
     .MovieItem .MovieItem_content h3 {
         font-size: 1rem;
     }

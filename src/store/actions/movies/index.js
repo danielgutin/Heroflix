@@ -1,6 +1,7 @@
 // --------- Actions Related to Movies Section ----------- //
 import axios from 'axios';
 import swal from 'sweetalert';
+
 import { 
     GET_MOVIES_FROM_API,
     TOGGLE_MOVIE_API,
@@ -17,18 +18,21 @@ import {
     TOGGLE_REMOVE_MODAL,
     REMOVE_MOVIE_BY_ID } from './constants';
 
+// Config Module
+var config = require('config');
+
 // this function calls the TMDB api & recieve list of 20 random movies.
 // second api call is with each movie id that recived for extra information about the movie.
 export const GetMoviesFromApi = () => {
     return dispatch => {
         // Toggle the Loader while processing Api.
         // first call retrieve random list of movies.
-        axios.get('https://api.themoviedb.org/3/discover/movie?api_key=02a35c5cbc417952eab0267826fb4b58')
+        axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.API_KEY || config.get("api_key")}`)
         .then((res) => {
             //looping through movies and call the second api for Detailed movie obj.
             //passing the new movie Obj to the movies reducer.
             res.data.results.forEach((movie, i) => {
-                axios.get(`https://api.themoviedb.org/3/movie/${movie.id}?api_key=02a35c5cbc417952eab0267826fb4b58`)
+                axios.get(`https://api.themoviedb.org/3/movie/${movie.id}?api_key=${process.env.API_KEY || config.get("api_key")}`)
                 .then((res) => {
                     dispatch( {type: GET_MOVIES_FROM_API, payload : { data : res.data, first : true }})
                 })
@@ -106,12 +110,13 @@ export const toggleNewModal = () => {
 export const newModalInput = (content) => {
     return { type: NEW_MODAL_INPUT, payload : content }
 }
+
 // Add new movie by Name.
 export const addMovie = ( name ) => {
     return dispatch => {
-        axios.get(`https://api.themoviedb.org/3/search/movie?api_key=02a35c5cbc417952eab0267826fb4b58&query=${name}`)
+        axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY || config.get("api_key")}&query=${name}`)
         .then((res) => {
-            axios.get(`https://api.themoviedb.org/3/movie/${res.data.results[0].id}?api_key=02a35c5cbc417952eab0267826fb4b58`)
+            axios.get(`https://api.themoviedb.org/3/movie/${res.data.results[0].id}?api_key=${process.env.API_KEY || config.get("api_key")}`)
             .then((res) => {
                 // updathe the movie List.
                 dispatch({ type : GET_MOVIES_FROM_API, payload: {data : res.data, first : false }});

@@ -8,12 +8,14 @@ Reset the browser defaults.
 ****************************/
 * {
   padding: 0;
-  margin : 0;
-  box-sizing: border-box;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
-  font-size: 62.5%;    /* making 1em = 10px */
+  font-size: 62.5%;
+  /* making 1em = 10px */
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
 }
@@ -21,13 +23,13 @@ body {
 /* Variables for reusability of styling */
 :root {
   /* App colors */
-  --main-color : #E50914;
-  --second-color : #eee;
-  --shadow-color : rgba(0, 0, 0, 0.788);
+  --main-color: #E50914;
+  --second-color: #eee;
+  --shadow-color: rgba(0, 0, 0, 0.788);
   /* spaces used for margin & padding */
-  --sp-sm : .5rem; 
-  --sp-md : 1rem;
-  --sp-lg : 1.5rem;
+  --sp-sm: .5rem;
+  --sp-md: 1rem;
+  --sp-lg: 1.5rem;
 }
 
 /* Default Shared & reuseable Button Styling */
@@ -38,6 +40,10 @@ body {
   cursor: pointer;
   color: #fff;
   transition: all .3s ease;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
 }
 
 /* Default Page Structure ( Favorites / Movies ) */

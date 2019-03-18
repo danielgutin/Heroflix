@@ -1,7 +1,7 @@
 .MovieItem {
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;    
+    background-position: center;
     position: relative;
 }
 
@@ -10,17 +10,19 @@
     height: 0;
     width: 100%;
     opacity: 0;
+    -webkit-transition: all .3s ease;
     transition: all .3s ease;
     cursor: pointer;
     color: #fff;
-    background: linear-gradient(rgba(0,0,0,.9), rgba(0,0,0,.9));
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, .9)), to(rgba(0, 0, 0, .9)));
+    background: linear-gradient(rgba(0, 0, 0, .9), rgba(0, 0, 0, .9));
     text-align: center;
     padding: var(--sp-sm);
     font-size: .9rem;
     letter-spacing: .05rem;
 }
 
-.MovieItem .MovieItem_content > * {
+.MovieItem .MovieItem_content>* {
     margin-bottom: .3rem;
 }
 
@@ -48,7 +50,8 @@
 .MovieItem:hover .MovieItem_content {
     height: 100%;
     opacity: 1;
-    background: linear-gradient(rgba(0,0,0,.9), rgba(0,0,0,.9));
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, .9)), to(rgba(0, 0, 0, .9)));
+    background: linear-gradient(rgba(0, 0, 0, .9), rgba(0, 0, 0, .9));
 }
 
 .MovieItem_buttons {

@@ -1,7 +1,11 @@
 /* Medium / small  Phones Screen */
-@media screen and (max-width:590px) {
+@media screen and (max-width:1023px) {
     .EditModal_fields {
         display: grid;
         grid-template-columns: 1fr;
+    }
+
+    .ant-modal-content {
+        width: 96vw;
     }
 }

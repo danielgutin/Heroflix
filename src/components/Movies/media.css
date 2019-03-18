@@ -9,7 +9,7 @@ Media Queries for Movies.js
         grid-auto-rows: 41vh;
         grid-gap: var(--sp-lg);
         padding: var(--sp-md);
-    } 
+    }
 }
 
 
@@ -26,7 +26,7 @@ Media Queries for Movies.js
         grid-auto-rows: 39vh;
         grid-gap: var(--sp-lg);
         padding: var(--sp-md);
-    } 
+    }
 }
 
 
@@ -43,7 +43,7 @@ Media Queries for Movies.js
         grid-auto-rows: 45vh;
         grid-gap: var(--sp-lg);
         padding: var(--sp-md);
-    } 
+    }
 }
 
 /* Tablet Screen */
@@ -58,8 +58,8 @@ Media Queries for Movies.js
         grid-template-rows: 47vh;
         grid-auto-rows: 47vh;
         grid-gap: var(--sp-md);
-        padding: 6rem var(--sp-md);
-    } 
+        padding: 5rem var(--sp-md);
+    }
 }
 
 
@@ -71,7 +71,7 @@ Media Queries for Movies.js
         grid-auto-rows: 55vh;
         grid-gap: var(--sp-lg);
         padding: var(--sp-lg);
-    } 
+    }
 }
 
 /* Medium / small  Phones Screen */
@@ -81,5 +81,17 @@ Media Queries for Movies.js
         grid-template-rows: 55vh;
         grid-auto-rows: 55vh;
         padding: 28vw 20vw;
-    } 
+    }
+}
+
+
+
+/* extra small / small  Phones Screen */
+@media screen and (max-width:360px) {
+    .Movies {
+        grid-template-columns: 1fr;
+        grid-template-rows: 80vh;
+        grid-auto-rows: 80vh;
+        padding: 28vw 10vw;
+    }
 }

@@ -9,7 +9,7 @@ Media Queries for Favorites.js
         grid-auto-rows: 39vh;
         grid-gap: var(--sp-lg);
         padding: var(--sp-md);
-    } 
+    }
 }
 
 
@@ -26,7 +26,7 @@ Media Queries for Favorites.js
         grid-auto-rows: 39vh;
         grid-gap: var(--sp-lg);
         padding: var(--sp-md);
-    } 
+    }
 }
 
 
@@ -43,7 +43,7 @@ Media Queries for Favorites.js
         grid-auto-rows: 45vh;
         grid-gap: var(--sp-lg);
         padding: var(--sp-md);
-    } 
+    }
 }
 
 /* Tablet Screen */
@@ -59,7 +59,7 @@ Media Queries for Favorites.js
         grid-auto-rows: 47vh;
         grid-gap: var(--sp-md);
         padding: var(--sp-md);
-    } 
+    }
 
     .Favorites .MovieItem_buttons-button.MovieItem_button-remove {
         top: 88%;
@@ -69,14 +69,14 @@ Media Queries for Favorites.js
     .Favorites-empty {
         left: 50%;
     }
-    
+
     .Favorites-empty img {
         height: 35vw;
     }
-    
+
     .Favorites-empty span {
         font-size: 2.2vw;
-    
+
     }
 
 }
@@ -90,17 +90,17 @@ Media Queries for Favorites.js
         grid-auto-rows: 55vh;
         grid-gap: var(--sp-lg);
         padding: var(--sp-lg);
-    } 
+    }
 
 
     .Favorites-empty img {
         height: 55vw;
     }
-    
+
     .Favorites-empty span {
         font-size: 4vw;
         display: block;
-    
+
     }
 }
 
@@ -111,5 +111,5 @@ Media Queries for Favorites.js
         grid-template-rows: 55vh;
         grid-auto-rows: 55vh;
         padding: 28vw 20vw;
-    } 
+    }
 }
