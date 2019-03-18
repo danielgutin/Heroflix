@@ -1,9 +1,9 @@
 /**************************
-Media Queries for Movies.js 
+Media Queries for Favorites.js 
 ***************************/
 /* Extra Large Screens */
 @media screen and (min-width:1920px) {
-    .Movies {
+    .Favorites {
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: 39vh;
         grid-auto-rows: 39vh;
@@ -20,7 +20,7 @@ Media Queries for Movies.js
         width: 85vw;
     }
 
-    .Movies {
+    .Favorites {
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: 39vh;
         grid-auto-rows: 39vh;
@@ -37,7 +37,7 @@ Media Queries for Movies.js
         width: 95vw;
     }
 
-    .Movies {
+    .Favorites {
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: 45vh;
         grid-auto-rows: 45vh;
@@ -53,19 +53,24 @@ Media Queries for Movies.js
         width: 100vw;
     }
 
-    .Movies {
+    .Favorites {
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: 47vh;
         grid-auto-rows: 47vh;
         grid-gap: var(--sp-md);
-        padding: 6rem var(--sp-md);
+        padding: var(--sp-md);
     } 
+
+    .Favorites .MovieItem_buttons-button.MovieItem_button-remove {
+        top: 88%;
+        left: 50%;
+    }
 }
 
 
 /* Large Phones Screen */
 @media screen and (max-width:750px) {
-    .Movies {
+    .Favorites {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: 55vh;
         grid-auto-rows: 55vh;
@@ -76,7 +81,7 @@ Media Queries for Movies.js
 
 /* Medium / small  Phones Screen */
 @media screen and (max-width:590px) {
-    .Movies {
+    .Favorites {
         grid-template-columns: 1fr;
         grid-template-rows: 55vh;
         grid-auto-rows: 55vh;

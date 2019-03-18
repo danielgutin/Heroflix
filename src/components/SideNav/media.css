@@ -55,11 +55,12 @@ Media Queries for SideNav.js
     }
 
     .SideNav_logo img {
-        height: 5rem;
-        width: 15rem;
+        height: 4rem;
+        width: 13rem;
         position: absolute;
-        top: 270%;
-        right: 10%;
+        top: 840%;
+        right: 0%;
+        z-index: 9999;
     }
     
     .Movies-add {

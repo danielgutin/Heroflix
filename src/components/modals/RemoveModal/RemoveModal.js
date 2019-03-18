@@ -6,6 +6,7 @@ import errorPopcorn from '../../../assets/sad-popcorn.png';
 // Redux Stuff.
 import { connect } from 'react-redux';
 import { toggleRemoveModal, removeMovieById } from '../../../store/actions/movies';
+import { RemoveFromFavorites } from '../../../store/actions/favorite';
 // Components
 import { Modal, Button } from 'antd';
 
@@ -23,7 +24,10 @@ const RemoveModal = (props) => {
             title="Remove Movie"
             onCancel={() => props.toggleRemoveModalHandler()}
             footer={[
-            <Button key="remove" onClick={() => props.removeMovieByIdHandler(id)}>remove</Button>,
+            <Button key="remove" onClick={() => {
+              props.removeMovieByIdHandler(id)
+              props.RemoveFromFavoritesHandler(id)
+            }}>remove</Button>,
             <Button key="back" onClick={() => props.toggleRemoveModalHandler()}>Cancel</Button>,
             ]}>
             <div className="RemoveModal_content">
@@ -46,7 +50,8 @@ const mapStateToProps = state => {
   const mapDispatchToProps = dispatch => {
     return {
         toggleRemoveModalHandler : () => dispatch(toggleRemoveModal()),
-        removeMovieByIdHandler : (id) => dispatch(removeMovieById(id))
+        removeMovieByIdHandler : (id) => dispatch(removeMovieById(id)),
+        RemoveFromFavoritesHandler : (id) => dispatch(RemoveFromFavorites(id))
     }
   }
 

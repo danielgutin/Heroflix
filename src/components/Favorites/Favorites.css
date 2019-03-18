@@ -1,0 +1,25 @@
+.Favorites::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px var(--shadow-color);
+	border-radius: .2rem;
+	background-color: var(--shadow-color);
+}
+
+.Favorites::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: var(--shadow-color);
+}
+
+.Favorites::-webkit-scrollbar-thumb
+{
+	border-radius: .4rem;
+	-webkit-box-shadow: inset 0 0 6px var(--shadow-color);
+	background-color: rgba(214, 41, 41, 0.781);
+}
+
+
+.Favorites .MovieItem_buttons-button.MovieItem_button-remove {
+	top: 88%;
+	left: 45%;
+}

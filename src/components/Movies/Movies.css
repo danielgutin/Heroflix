@@ -1,14 +1,3 @@
-.Movies {
-    background-color: var(--shadow-color);
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 37vh;
-    grid-auto-rows: 37vh;
-    grid-gap: var(--sp-lg);
-    padding: var(--sp-md);
-    overflow-y: auto;
-}
-
 .Movies::-webkit-scrollbar-track
 {
 	-webkit-box-shadow: inset 0 0 6px var(--shadow-color);
