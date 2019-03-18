@@ -428,7 +428,7 @@ export default (state = initState, { type, payload }) => {
             //clone remove modal. 
             let RemoveModalRemove = Object.assign({}, state.RemoveModal);
             // remove movie from list by its id.
-            let updatedMovies = state.movies.filter((movie) => movie.id !== payload.id);
+            let updatedMovies = state.movies.filter((movie) => movie.id !== payload );
             // notify the user about successful remove.
             swal( "Successful Remove" ,  "Movie Item Removed successfully" ,  "success" );
             // toggle the RemoveModalState.

@@ -12,3 +12,32 @@ Media Queries for MovieItem.js
         font-size: .9rem;
     }
 }
+
+
+/* Large Phones Screen */
+@media screen and (max-width:750px) {
+    .MovieItem_buttons-button.MovieItem_button-edit {
+        top: 74%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 10rem;
+    }
+    
+    .MovieItem_buttons-button.MovieItem_button-add {
+        top: 94%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 10rem;
+    }
+    
+    .MovieItem_buttons-button.MovieItem_button-remove {
+        top: 84%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 10rem;
+    }
+    
+    .MovieItem .MovieItem_content h3 {
+        font-size: 1rem;
+    }
+}

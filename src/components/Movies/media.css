@@ -80,6 +80,6 @@ Media Queries for Movies.js
         grid-template-columns: 1fr;
         grid-template-rows: 55vh;
         grid-auto-rows: 55vh;
-        padding: 20vw;
+        padding: 28vw 20vw;
     } 
 }

@@ -14,7 +14,6 @@ const RemoveModal = (props) => {
 
     // properties used for RemoveModal
     const { isVisible, id, title } = props.movies.RemoveModal;
-    console.log(isVisible, id, title);
   return (
     <div className='RemoveModal'>
         <Modal

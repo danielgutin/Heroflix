@@ -8,7 +8,7 @@
     }
 
     .BurgerNavBar::after {
-        width: 97%;
+        width: 100%;
         z-index: -1;
       }
 }
